@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s1.util.DBConnection;
@@ -13,7 +18,22 @@ import com.iu.s1.util.DBConnection;
 @Repository
 public class ProductDAO {
 	
+	@Autowired
+	private SqlSession sqlSession;
+	private final String NAMESPACE="com.iu.s1.product.ProductDAO.";
+	
+	
+	
+	//delete					원래는 매개변수 DTO로 받는게 훨씬 낫다
+	public int setProductDelete(Long productNum) throws Exception{
 		
+		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
+	}
+	
+	
+	
+	
+	//getMax
 	public Long getProductNum() throws Exception {
 		
 		Connection connection = DBConnection.getConnection();
@@ -37,32 +57,8 @@ public class ProductDAO {
 	
 //-----------------------------------------------------------	
 	public List<OptionDTO> getOptionList() throws Exception {
-		
 		ArrayList<OptionDTO> ar = new ArrayList<OptionDTO>();
 		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT OPTIONNUM, PRODUCTNUM, OPTIONNAME, OPTIONPRICE, OPTIONSTOCK"
-				+ " FROM PRODUCTOPTION";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			
-			OptionDTO optionDTO = new OptionDTO();
-			optionDTO.setOptionNum(rs.getLong("OPTIONNUM"));
-			optionDTO.setProductNum(rs.getLong("PRODUCTNUM"));
-			optionDTO.setOptionName(rs.getString("OPTIONNAME"));
-			optionDTO.setOptionPrice(rs.getLong("OPTIONPRICE"));
-			optionDTO.setOptionStock(rs.getLong("OPTIONSTOCK"));
-			ar.add(optionDTO);
-			
-		}
-		
-		DBConnection.disConnection(rs, st, connection);
-				
 		return ar;
 		
 	}
@@ -90,84 +86,25 @@ public class ProductDAO {
 	}
 	
 //------------------------------------------------------------------	
+	//getProductDetail
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
-		
-				
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT * FROM PRODUCT"
-				+ " WHERE PRODUCTNUM = ?";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		st.setLong(1, productDTO.getProductNum());
-		
-		ResultSet rs = st.executeQuery();
-		
-		if(rs.next()) {
-			productDTO.setProductNum(rs.getLong("PRODUCTNUM"));
-			productDTO.setProductName(rs.getString("PRODUCTNAME"));
-			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
-			productDTO.setProductDetail(rs.getString("PRODUCTDETAIL"));
-		} else {
-			
-			productDTO=null;
-			
-		}
-		
-		return productDTO;
+	
+		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 		
 	}
 	
-	
-	
-	
+		
 	public List<ProductDTO> getProductList ()throws Exception{
 		ArrayList<ProductDTO> ar = new ArrayList<ProductDTO>();
 		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU"
-				+ " FROM PRODUCT ORDER BY PRODUCTJUMSU DESC";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			ProductDTO productDTO = new ProductDTO();
-			productDTO.setProductNum(rs.getLong("PRODUCTNUM"));
-			productDTO.setProductName(rs.getString("PRODUCTNAME"));
-			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
-			ar.add(productDTO);
-		}
-		
-		DBConnection.disConnection(rs, st, connection);
-		
-		return ar;
+		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
 	
 	
 	//setAddProduct
 	public int setAddProduct(ProductDTO productDTO)throws Exception{
 		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)"
-				+ " VALUES (?, ?, ?, 0.0)";
-				
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		st.setLong(1, productDTO.getProductNum());
-		st.setString(2, productDTO.getProductName());
-		st.setString(3, productDTO.getProductDetail());
-		//st.setDouble(3, productDTO.getProductJumsu());
-		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnection(st, connection);
-		
-		return result;
+		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
 		
 	}
 	
