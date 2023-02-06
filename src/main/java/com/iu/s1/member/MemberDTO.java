@@ -6,7 +6,7 @@ public class MemberDTO {
 	private String pw;
 	private String name;
 	private String address;
-	private String call;
+	private String phone;
 	private String email;
 	
 	
@@ -36,11 +36,11 @@ public class MemberDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCall() {
-		return call;
+	public String getPhone() {
+		return this.phone;
 	}
-	public void setCall(String call) {
-		this.call = call;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public String getEmail() {
 		return email;

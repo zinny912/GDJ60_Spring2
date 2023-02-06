@@ -16,26 +16,26 @@ public class MemberController {
 	@Autowired
 	private MemberDTO memberDTO;
 	
-	@RequestMapping(value = "memberJoin")
-	public String setMemberJoin() throws Exception {
-		memberService.memberJoin(memberDTO);
-		
-		System.out.println("JOIN");
-		
-		return "member/memberJoin";
-	}
+//	@RequestMapping(value = "memberJoin")
+//	public String setMemberJoin() throws Exception {
+//		memberService.memberJoin(memberDTO);
+//		
+//		System.out.println("JOIN");
+//		
+//		return "member/memberJoin";
+//	}
 	
-	@RequestMapping(value = "memberLogin")
-	public void setMemberLogin() {
-		
-	}
-	
-	@RequestMapping(value = "memberPage")
-	public ModelAndView setMemberPage() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberPage");
-		
-		return mv;
-		
-	}
+//	@RequestMapping(value = "memberLogin")
+//	public void setMemberLogin() {
+//		
+//	}
+//	
+//	@RequestMapping(value = "memberPage")
+//	public ModelAndView setMemberPage() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("member/memberPage");
+//		
+//		return mv;
+//		
+//	}
 }
