@@ -6,6 +6,10 @@
   
   <!-- namespace는 사용하려는 패키지의 풀 패키지명으로 설정 -->
   <mapper namespace="com.iu.s1.product.ProductDAO">
+  	<select id="getProductNum" resultType="Long">
+  		SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+  	</select>
+  
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->
   	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
   		SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
@@ -19,7 +23,7 @@
   	</select>
   	
   	<!-- insert, update, delete 는 resultType이 존재하지 않는다 -->
-  	<insert id="getAddProduct" parameterType="ProductDTO">
+  	<insert id="setProductAdd" parameterType="ProductDTO">
   		INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
   		VALUES(#{productNum}, #{productName}, #{productDetail}, 0.0)
   	</insert>

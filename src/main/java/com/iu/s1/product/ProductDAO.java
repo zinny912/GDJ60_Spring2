@@ -35,36 +35,22 @@ public class ProductDAO {
 	
 	//getMax
 	public Long getProductNum() throws Exception {
-		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
-
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		rs.next();
-		
-		Long num = rs.getLong(1);
-		
-		DBConnection.disConnection(rs, st, connection);
-		
-		return num;
+		//SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+		return sqlSession.selectOne(NAMESPACE+"getProductNum");
 		
 	}
 		
 	
 //-----------------------------------------------------------	
-	public List<OptionDTO> getOptionList() throws Exception {
-		ArrayList<OptionDTO> ar = new ArrayList<OptionDTO>();
+	public List<ProductOptionDTO> getOptionList() throws Exception {
+		ArrayList<ProductOptionDTO> ar = new ArrayList<ProductOptionDTO>();
 		
 		return ar;
 		
 	}
 	
 	
-	public int setAddOption(OptionDTO optionDTO) throws Exception {
+	public int setProductOptionAdd(ProductOptionDTO productOptionDTO) throws Exception {
 		
 		Connection connection = DBConnection.getConnection();
 		
@@ -73,10 +59,10 @@ public class ProductDAO {
 		
 		PreparedStatement st = connection.prepareStatement(sql);
 		
-		st.setLong(1, optionDTO.getProductNum());
-		st.setString(2, optionDTO.getOptionName());
-		st.setLong(3, optionDTO.getOptionPrice());
-		st.setLong(4, optionDTO.getOptionStock());
+		st.setLong(1, productOptionDTO.getProductNum());
+		st.setString(2, productOptionDTO.getProductOptionName());
+		st.setLong(3, productOptionDTO.getProductOptionPrice());
+		st.setLong(4, productOptionDTO.getProductOptionStock());
 		
 		int result = st.executeUpdate();
 		
@@ -102,9 +88,9 @@ public class ProductDAO {
 	
 	
 	//setAddProduct
-	public int setAddProduct(ProductDTO productDTO)throws Exception{
+	public int setProductAdd(ProductDTO productDTO)throws Exception{
 		
-		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
+		return sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);
 		
 	}
 	

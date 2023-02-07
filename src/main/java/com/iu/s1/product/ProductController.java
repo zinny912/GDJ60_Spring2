@@ -34,7 +34,8 @@ public class ProductController {
 	
 	//URL경로랑 JSP이름이 같으면 void로 해도 연결이 됨
 	@RequestMapping(value = "productAdd")
-	public void getProductAdd() {
+	public void setProductAdd() {
+		
 	}
 	
 	//JSP경로명을 담아서 리턴

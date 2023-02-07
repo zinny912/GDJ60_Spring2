@@ -37,17 +37,18 @@ public class ProductService {
 
 	//결합도가 높다(강하다)
 	
-	public int setAddProduct(ProductDTO productDTO, List<OptionDTO> ar) throws Exception{
+	public int setProductAdd(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception{
 			//product, option
 			Long productNum = productDAO.getProductNum( );
 			productDTO.setProductNum(productNum);
-			int result = productDAO.setAddProduct(productDTO);
+			int result = productDAO.setProductAdd(productDTO);
 
-			for(OptionDTO optionDTO : ar ) {
-			optionDTO.setOptionNum(productNum);
-			result = productDAO.setAddOption(optionDTO);
+		if(ar != null) {	
+			for(ProductOptionDTO productOptionDTO : ar ) {
+			productOptionDTO.setProductOptionNum(productNum);
+			result = productDAO.setProductOptionAdd(productOptionDTO);
 			}
-
+		}
 			return result;
 	}
 

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Member MyPage Page</h1>
+	<h1>Member Join page</h1>
 </body>
 </html>
