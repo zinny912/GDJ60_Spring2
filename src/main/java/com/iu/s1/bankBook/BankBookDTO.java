@@ -41,9 +41,5 @@ public class BankBookDTO {
 	public void setBookDetail(String bookDetail) {
 		this.bookDetail = bookDetail;
 	}
-	
-	
-	
-	
 
 }
