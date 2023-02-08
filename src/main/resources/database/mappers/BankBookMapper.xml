@@ -21,7 +21,11 @@
   
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
   		INSERT INTO BANKBOOK 
-  		VALUES (#{bookNumber}, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
+  		VALUES (BANKBOOK_SEQ.NEXTVAL, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
   	</insert>
   	
+  	<delete id="setBankBookDelete" parameterType="Long">
+  		DELETE BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
+  	</delete>
+  
   </mapper>

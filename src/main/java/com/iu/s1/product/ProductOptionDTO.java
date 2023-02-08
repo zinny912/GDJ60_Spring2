@@ -1,20 +1,17 @@
 package com.iu.s1.product;
 
 public class ProductOptionDTO {
-	
-	private Long productOptionNum;
+	private Long optionNum;
 	private Long productNum;
-	private String productOptionName;
-	private Long productOptionPrice;
-	private Long productOptionStock;
+	private String optionName;
+	private Long optionPrice;
+	private Long optionAmount;
 	
-	
-	
-	public Long getProductOptionNum() {
-		return productOptionNum;
+	public Long getOptionNum() {
+		return optionNum;
 	}
-	public void setProductOptionNum(Long productOptionNum) {
-		this.productOptionNum = productOptionNum;
+	public void setOptionNum(Long optionNum) {
+		this.optionNum = optionNum;
 	}
 	public Long getProductNum() {
 		return productNum;
@@ -22,23 +19,23 @@ public class ProductOptionDTO {
 	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
 	}
-	public String getProductOptionName() {
-		return productOptionName;
+	public String getOptionName() {
+		return optionName;
 	}
-	public void setProductOptionName(String productOptionName) {
-		this.productOptionName = productOptionName;
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
 	}
-	public Long getProductOptionPrice() {
-		return productOptionPrice;
+	public Long getOptionPrice() {
+		return optionPrice;
 	}
-	public void setProductOptionPrice(Long productOptionPrice) {
-		this.productOptionPrice = productOptionPrice;
+	public void setOptionPrice(Long optionPrice) {
+		this.optionPrice = optionPrice;
 	}
-	public Long getProductOptionStock() {
-		return productOptionStock;
+	public Long getOptionAmount() {
+		return optionAmount;
 	}
-	public void setProductOptionStock(Long productOptionStock) {
-		this.productOptionStock = productOptionStock;
+	public void setOptionAmount(Long optionAmount) {
+		this.optionAmount = optionAmount;
 	}
 	
 	

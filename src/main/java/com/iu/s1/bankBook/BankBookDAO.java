@@ -20,23 +20,23 @@ public class BankBookDAO {
 	
 	//select
 	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getBankbookDetail", bankBookDTO);
+		return sqlSession.selectOne(NAMESPACE+"getBankBookDetail", bankBookDTO);
 	}
 	
 	
 	//insert
 	public int setBankBookAdd(BankBookDTO bankBookDTO)throws Exception {
-		return sqlSession.insert(NAMESPACE+"setBankbookAdd", bankBookDTO);
+		return sqlSession.insert(NAMESPACE+"setBankBookAdd", bankBookDTO);
 	}
 	
 	//update
 	public int setBankBookUpdate(BankBookDTO bankBookDTO)throws Exception {
-		return sqlSession.update(NAMESPACE+"setBankbookUpdate", bankBookDTO);
+		return sqlSession.update(NAMESPACE+"setBankBookUpdate", bankBookDTO);
 	}
 	
 	//delete
 	public int setBankBookDelete(BankBookDTO bankBookDTO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"setBankbookDelete", bankBookDTO);
+		return sqlSession.delete(NAMESPACE+"setBankBookDelete", bankBookDTO);
 	}
 	
 	

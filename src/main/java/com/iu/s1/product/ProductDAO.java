@@ -9,7 +9,6 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,76 +21,83 @@ public class ProductDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.s1.product.ProductDAO.";
 	
-	
-	
-	//delete					원래는 매개변수 DTO로 받는게 훨씬 낫다
-	public int setProductDelete(Long productNum) throws Exception{
-		
+	//delete
+	public int setProductDelete(Long productNum)throws Exception{	
 		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
 	}
 	
 	
 	
-	
 	//getMax
-	public Long getProductNum() throws Exception {
-		//SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
+	public Long getProductNum()throws Exception{
+	//SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
 		return sqlSession.selectOne(NAMESPACE+"getProductNum");
 		
 	}
-		
 	
-//-----------------------------------------------------------	
-	public List<ProductOptionDTO> getOptionList() throws Exception {
-		ArrayList<ProductOptionDTO> ar = new ArrayList<ProductOptionDTO>();
+	//--------------------------------------
+	public List<ProductOptionDTO> getProductOptionList()throws Exception{
+		List<ProductOptionDTO> ar = new ArrayList<ProductOptionDTO>();
+		
+		Connection con = DBConnection.getConnection();
+		
+		String sql = "SELECT * FROM PRODUCTOPTION";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		ResultSet rs = st.executeQuery();
+		
+		while(rs.next()) {
+			ProductOptionDTO productOptinDTO = new ProductOptionDTO();
+			productOptinDTO.setOptionNum(rs.getLong("OPTIONNUM"));
+			productOptinDTO.setProductNum(rs.getLong("PRODUCTNUM"));
+			productOptinDTO.setOptionName(rs.getString("OPTIONNAME"));
+			productOptinDTO.setOptionPrice(rs.getLong("OPTIONPRICE"));
+			productOptinDTO.setOptionAmount(rs.getLong("OPTIONAMOUNT"));
+			ar.add(productOptinDTO);
+		}
+		
+		DBConnection.disConnection(rs,  st, con);
 		
 		return ar;
-		
 	}
 	
-	
-	public int setProductOptionAdd(ProductOptionDTO productOptionDTO) throws Exception {
+	public int setAddProductOption(ProductOptionDTO productOptionDTO) throws Exception {
+		Connection con = DBConnection.getConnection();
 		
-		Connection connection = DBConnection.getConnection();
+		String sql="INSERT INTO PRODUCTOPTION (OPTIONNUM, PRODUCTNUM, OPTIONNAME, OPTIONPRICE, OPTIONAMOUNT) "
+				+ "VALUES (PRODUCT_SEQ.NEXTVAL, ?, ?, ?, ?)";
 		
-		String sql = "INSERT INTO PRODUCTOPTION (OPTIONNUM, PRODUCTNUM, OPTIONNAME, OPTIONPRICE, OPTIONSTOCK)"
-				+ " VALUES(PRODUCTOPTION_SEQ.NEXTVAL, ?, ?, ?, ?)";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
+		PreparedStatement st = con.prepareStatement(sql);
 		st.setLong(1, productOptionDTO.getProductNum());
-		st.setString(2, productOptionDTO.getProductOptionName());
-		st.setLong(3, productOptionDTO.getProductOptionPrice());
-		st.setLong(4, productOptionDTO.getProductOptionStock());
+		st.setString(2, productOptionDTO.getOptionName());
+		st.setLong(3, productOptionDTO.getOptionPrice());
+		st.setLong(4, productOptionDTO.getOptionAmount());
 		
 		int result = st.executeUpdate();
 		
-		DBConnection.disConnection(st, connection);
+		DBConnection.disConnection(st, con);
 		
 		return result;
 	}
 	
-//------------------------------------------------------------------	
-	//getProductDetail
-	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception{
 	
+	
+	//--------------------------------------
+	
+	//getProductDetail
+	public ProductDTO getProductDetail(ProductDTO productDTO)throws Exception{
+		
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 		
 	}
 	
-		
-	public List<ProductDTO> getProductList ()throws Exception{
-		ArrayList<ProductDTO> ar = new ArrayList<ProductDTO>();
-		
+	public List<ProductDTO> getProductList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
 	
-	
-	//setAddProduct
 	public int setProductAdd(ProductDTO productDTO)throws Exception{
-		
 		return sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);
-		
 	}
 	
-}	
+}

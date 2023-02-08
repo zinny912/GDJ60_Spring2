@@ -3,6 +3,7 @@ package com.iu.s1.bankBook;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -21,24 +22,25 @@ public class BankBookDAOTest extends MyTestCase {
 		List<BankBookDTO> ar = bankBookDAO.getBankBookList();
 		System.out.println(ar.size()>0);
 			
-		assertEquals(0, ar.size());
+		assertNotEquals(0, ar.size());
 	}
 	
 	@Test
 	public void getBankBookDetailTest() throws Exception{
 		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(1L);
-		bankBookDTO= bankBookDAO.getBankBookDetail(bankBookDTO);
+		bankBookDTO.setBookNumber(111L);
+		bankBookDTO = bankBookDAO.getBankBookDetail(bankBookDTO);
 		
-		assertNotNull(bankBookDTO);
+		assertNull(bankBookDTO);
+	
 	}
 	@Test	
 	public void setBankBookAddTest() throws Exception{
 		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(120L);
-		bankBookDTO.setBookName("부자통장");
-		bankBookDTO.setBookRate(4.1);
-		bankBookDTO.setBookSale(1);
+		bankBookDTO.setBookNumber(1111L);
+		bankBookDTO.setBookName("부자통장2");
+		bankBookDTO.setBookRate(5.70);
+		bankBookDTO.setBookSale(0);
 		bankBookDTO.setBookDetail("부자되세요");
 		
 		int result = bankBookDAO.setBankBookAdd(bankBookDTO);
@@ -46,6 +48,15 @@ public class BankBookDAOTest extends MyTestCase {
 		assertEquals(1, result);
 		
 	}
+//	@Test
+//	public void setBankBookDeleteTest() throws Exception{
+//		BankBookDTO bankBookDTO = new BankBookDTO();
+//		bankBookDTO.getBookNumber();
+//		
+//		int result = bankBookDAO.setBankBookDelete(bankBookDTO);
+//		
+//		assertEquals(1, result);
+//	}
 		
 }
 

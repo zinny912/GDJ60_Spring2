@@ -1,13 +1,10 @@
 package com.iu.s1.product;
 
 public class ProductDTO {
-	
 	private Long productNum;
 	private String productName;
 	private String productDetail;
 	private Double productJumsu;
-	
-	
 	
 	public Long getProductNum() {
 		return productNum;
@@ -35,7 +32,5 @@ public class ProductDTO {
 	}
 	
 	
-	
-	
-	
+
 }
