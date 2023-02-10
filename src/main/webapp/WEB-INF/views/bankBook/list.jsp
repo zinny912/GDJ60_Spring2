@@ -6,11 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" href="/resources/css/table.css">
 </head>
 <body>
-	<h1>BankBook List Page</h1>
+	<h1 class="title">BankBook List Page</h1>
 	
-	<table border=1>
+	<div class="image">
+	<img alt="석구이미지" src="../resources/images/se1.jpg">
+	</div>
+	<table class="tbl2">
 		<thead> <!-- 제목을 모아놓을 Row -->
 			<tr>
 				<th>상품명</th>
@@ -19,26 +23,28 @@
 			</tr>
 		</thead>
 		<tbody>
+
+			<!-- 출력용도는 EL인데, 반복문이 없어서 사용하려면 JSTL 사용해야함 -->
 		
-<!-- 출력용도는 EL인데, 반복문이 없어서 사용하려면 JSTL 사용해야함 -->
-		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
-				<td>${dto.bookRate}</td>
-				<td>
+			<c:forEach items="${list}" var="dto">
+				<tr>
+					<td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
+					<td class="tbl2_td">${dto.bookRate}</td>
+					
+					<td class="tbl2_td">
 					<!-- if/else문 switch/case -->
-					<c:choose>
-						<c:when test="${dto.bookSale eq 1}">판매중</c:when>
-						<c:otherwise>판매중단</c:otherwise>
-					</c:choose>
+						<c:choose>
+							<c:when test="${dto.bookSale eq 1}">판매중</c:when>
+							<c:otherwise>판매중단</c:otherwise>
+						</c:choose>
 					
 					<!-- 단일 if문  
 					<c:if test="${dto.bookSale eq 1}">판매중</c:if>
 					<c:if test="${dto.bookSale ne 1}">판매중단</c:if>
 					-->
-				</td>
-			</tr>
-		</c:forEach>	
+					</td>
+				</tr>
+			</c:forEach>	
 			
 		</tbody>
 	</table>

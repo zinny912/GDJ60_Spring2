@@ -62,7 +62,7 @@ public class BankBookController {
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = bankBookService.setBankBookAdd(bankBookDTO);
+		//int result = bankBookService.setBankBookAdd(bankBookDTO);
 		
 		mv.setViewName("redirect:./list");
 		
@@ -93,8 +93,9 @@ public class BankBookController {
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public ModelAndView setBankBookUpdate(BankBookDTO bankBookDTO, ModelAndView mv) throws Exception{
 		int result = bankBookService.setBankBookUpdate(bankBookDTO);
+				
 		mv.setViewName("redirect:./list");
-		
+		  
 		return mv;
 	}
 }

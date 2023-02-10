@@ -1,0 +1,88 @@
+
+/* table의 부모는 <body> */
+.tbl {
+
+    width: 70%; /*<body>의 70%*/
+    height: 70%;
+    margin: 0px auto;
+    border: 1px solid black;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    
+}
+
+.tbl td, .tbl td {
+
+    border: 1px solid black;
+    height: 40px;
+    
+   
+}
+
+.tbl > thead > tr {
+    background-color: black;
+    color: white;
+   
+}
+
+/* 상대선택자 */
+.tbl > tbody td > a {
+    text-decoration: none;
+    color: black;
+}
+
+/* <h1>은 넓이가 100%로 되어있어서 width 조정해줘야함 
+auto로 조정하려면 조정하려는 구간의 여유 공간이 있어야한다*/
+.title {
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* display inline은 block 태그로 (여기선 <div>) 감싸서 적용시켜야함 
+inline은 자체적으로 이동은 되지않는다!!*/
+.image {
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+    
+}
+
+.tbl_td {
+  
+    text-align: center;
+}
+
+
+.tbl2 {
+    width: 70%;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tbl2 > thead tr {
+    background-color: black;
+    color: white;
+}
+
+.tbl2 > tbody > tr > td {
+    border-bottom: 1px solid black;
+}
+
+.tbl2 > tbody > tr > td:last-child {
+    border-right: 0;
+}
+
+
+
+.tbl2 th, .tbl2 td {
+    border-right: 3px solid white ;
+    height: 30px;
+}
+
+.tbl2 > tbody td > a {
+    text-decoration: none;
+    color: black;
+}
+
+

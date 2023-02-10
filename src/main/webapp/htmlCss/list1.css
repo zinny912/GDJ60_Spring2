@@ -1,0 +1,23 @@
+/* block 타입은 옆으로 나열이 안됨 → inline 타입으로 변경 해!*/
+
+.c1 {
+    list-style: none;
+    display: inline-block;
+    margin-top: 100px;
+}
+.c1 > li, .c2 > li {
+    display: inline-block;
+}
+
+.c2 {
+    list-style: none;
+    display: inline-block;
+}
+
+.c3 {
+    float: left;
+}
+
+.c4 {
+    float: left;
+}

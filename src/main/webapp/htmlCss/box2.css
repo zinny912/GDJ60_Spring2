@@ -1,0 +1,51 @@
+.c1 {
+
+    width: 200px;
+    height: 200px;
+    margin: 50px 0;
+}
+
+.bg1 {
+    background-color: red;
+    border-right-color: black;
+    border-right-width: 3px;
+    border-right-style: solid;
+
+    border-top: black dotted 3px ;
+
+    border-top-right-radius: 50px;
+
+    padding-top: 30px;
+}
+
+.bg2 {
+    background-color: blue;
+    border: purple double 5px;
+
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 150px;
+
+    padding: 50px;
+    color: aliceblue;
+}
+
+.bg3 {
+    background-color: yellow;
+    border: black solid 20px;
+    border-radius: 100%;
+    
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.d1 {
+    
+    /* inline은  */
+    color: red ;
+    border: 1px solid black;
+
+    padding: 50px;
+    margin: 50px;
+    width: 200px;
+    height: 80px;
+}
