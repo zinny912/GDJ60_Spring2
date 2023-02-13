@@ -24,7 +24,7 @@ public class MemberDAOTest extends MyTestCase{
 		memberDTO.setPhone("010-1234-1234");
 		memberDTO.setEmail("SeockGu@naver.com");
 		
-		int result = memberDAO.setMemberJoin(memberDTO);
+		int result = memberDAO.memberJoin(memberDTO);
 		
 		assertEquals(1, result);
 	}

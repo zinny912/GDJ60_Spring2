@@ -18,7 +18,7 @@
 	
 	<h1 class="title">Product List</h1>
 		
-	<table class="tbl">
+	<table class="table table">
 		<thead>
 			<tr>
 				<th>상품명</th><th>평점</th>
@@ -36,9 +36,9 @@
 	
 		</tbody>
 	</table>
-	
+
 		<a class="btn btn-danger" href="./productAdd">상품등록</a>
 	
-	
+		
 </body>
 </html>
