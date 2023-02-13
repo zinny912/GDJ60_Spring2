@@ -8,26 +8,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="../resources/css/table.css">
+	<c:import url="../template/common_css.jsp"></c:import>
+	<link rel="stylesheet" href="/resources/css/table.css">
 
 </head>
 <body>
 	 
-
+	<c:import url="../template/header.jsp"></c:import>
+	
 	<h1 class="title">Product List</h1>
-	
-	<% 
-		List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list");
-		for(ProductDTO productDTO:ar){
-	%>
-		<h3><%= productDTO.getProductName() %></h3>
-		<h3><%= productDTO.getProductJumsu() %></h3>
-	<%} %>
 		
-		
-	<hr>
-	
-	
 	<table class="tbl">
 		<thead>
 			<tr>
