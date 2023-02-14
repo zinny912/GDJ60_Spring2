@@ -12,6 +12,8 @@
   		
   		<typeAlias type="com.iu.s1.bankBook.BankBookDTO" alias ="BankBookDTO"/>
   		
+  		<typeAlias type="com.iu.s1.member.RoleDTO" alias="RoleDTO"/>
+  		
   		<typeAlias type="java.lang.Long" alias="Long"/>
   	
   	</typeAliases>
