@@ -4,6 +4,8 @@ public class RoleDTO {
 	
 	private Long roleNum;
 	private String roleName;
+	
+	
 	public Long getRoleNum() {
 		return roleNum;
 	}

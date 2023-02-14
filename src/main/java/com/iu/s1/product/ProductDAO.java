@@ -25,9 +25,7 @@ public class ProductDAO {
 	public int setProductDelete(Long productNum)throws Exception{	
 		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
 	}
-	
-	
-	
+			
 	//getMax
 	public Long getProductNum()throws Exception{
 	//SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
@@ -60,7 +58,7 @@ public class ProductDAO {
 		DBConnection.disConnection(rs,  st, con);
 		
 		return ar;
-	}
+		}
 	
 	public int setAddProductOption(ProductOptionDTO productOptionDTO) throws Exception {
 		Connection con = DBConnection.getConnection();
@@ -81,15 +79,12 @@ public class ProductDAO {
 		return result;
 	}
 	
-	
-	
+		
 	//--------------------------------------
 	
 	//getProductDetail
 	public ProductDTO getProductDetail(ProductDTO productDTO)throws Exception{
-		
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
-		
 	}
 	
 	public List<ProductDTO> getProductList()throws Exception{

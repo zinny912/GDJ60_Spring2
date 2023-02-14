@@ -1,26 +1,42 @@
 package com.iu.s1.member;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.iu.s1.util.DBConnection;
 
 @Repository
 public class MemberDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.iu.s1.member.MemberDAO.";
+	private final String NAMESPACE="com.iu.s1.member.MemberDAO.";
 	
-	public int memberJoin(MemberDTO memberDTO) throws Exception{
-		return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
-		
+	
+	public int setMemberAdd(MemberDTO memberDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setMemberAdd", memberDTO);
+	}
+
+	public int setMemberRoleAdd(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setMemberRoleAdd",memberDTO);
 	}
 	
+	//로그인
+	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+	}
+		
+	//개인정보페이지
+	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMemberPage", memberDTO);
+	}
+	
+	//정보수정
+	public int setMemberUpdate(MemberDTO memberDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
+	}
+	
+}	
 	
 	
 	//setAddMember
@@ -47,4 +63,3 @@ public class MemberDAO {
 //	}
 //	
 
-}

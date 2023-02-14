@@ -17,8 +17,9 @@
 		<h1 class ="h4 pb-2 mb-4 fw-bold text-danger border-bottom border-danger">회원가입 PAGE</h1>
 	</div>
 	<div>
-		<form class="row col-6" action="./memberJoin" method="post"> 
+		<form class="row col-6" action="./memberAdd" method="post"> 
 				<div class="input-group mb-3">
+				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="id">ID</span>
 				  <input type="text" name="id" class="form-control border-bottom border border-3 border border-danger text-body-tertiary " placeholder="아이디" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
@@ -41,7 +42,7 @@
 				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="address">주소</span>
 				  <input type="text" name="address" class="form-control border border-3 border border-danger text-body-tertiary" placeholder="주소지입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
-				
+							
 			  <div class="col-12">
 			    <button type="submit" class="btn btn-danger col-3 text-white fw-bold border border-3 border border-danger">등록</button>
 			  </div>
@@ -50,6 +51,6 @@
 	</div>
 		
 </div>			
-	
+	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
