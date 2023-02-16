@@ -5,14 +5,67 @@
   
   
   <mapper namespace="com.iu.s1.bankBook.BankBookDAO">
+  	<sql id="searchCondition">
+  			<if test="kind == 'contents'">
+	  			WHERE BOOKDETAIL LIKE '%' || #{search} || '%' 
+	  		</if>
+	  		
+	  		<if test="kind == 'title'">
+	  			WHERE BOOKNUMBER LIKE '%' || #{search} || '%' 
+	  		</if>
+  	
+  	</sql>
+  
+  	<sql id="searchCondition2">
+  	 
+  		WHERE	
+			<choose>
+				<when test="kind == 'contents'">
+					BOOKDETAIL
+				</when>
+				<otherwise>
+					BOOKNAME
+				</otherwise>
+			</choose>
+			
+					LIKE '%' || #{search} || '%'
+  	
+  	
+  	
+  	</sql>
+  
+	  	<select id="getBankBookCount" parameterType="Pager" resultType="Long">
+	  		SELECT COUNT(BOOKNUMBER)FROM BANKBOOK
+	  		 
+	  		<if test="kind == 'contents'">
+	  			WHERE BOOKDETAIL LIKE '%' || #{search} || '%' 
+	  		</if>
+	  		
+	  		<if test="kind == 'title'">
+	  			WHERE BOOKNUMBER LIKE '%' || #{search} || '%' 
+	  		</if>
+	  			
+	  	</select>
+  
+  
    	<select id="getBankBookNumber" resultType="Long" >
   		SELECT BANKBOOK_SEQ.NEXTVAL FROM DUAL
   	</select>
   	      
-    <select id="getBankBookList" resultType="BankBookDTO">
-    	SELECT *
-    	FROM BANKBOOK 
-        ORDER BY BOOKNUMBER DESC
+  	 <!-- paging처리 쿼리문 -->     
+    <select id="getBankBookList" parameterType="Pager" resultType="BankBookDTO">
+	    SELECT * FROM
+			(
+				SELECT ROWNUM R, B.* FROM  
+				(
+					SELECT * FROM BANKBOOK
+					
+					
+				  	
+					ORDER BY BOOKNUMBER DESC
+				) B
+			)
+		WHERE R BETWEEN #{startRow} AND #{lastRow} 
     </select>
   	
   	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">

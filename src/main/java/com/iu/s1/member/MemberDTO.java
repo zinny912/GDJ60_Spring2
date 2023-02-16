@@ -40,7 +40,7 @@ public class MemberDTO {
    public String getPhone() {
       return phone;
    }
-   public void setPhone(String Phone) {
+   public void setPhone(String phone) {
       this.phone = phone;
    }
    public String getEmail() {

@@ -32,8 +32,8 @@
 	 </div>
 	 
 	<div class="input-group mb-3">
-	  <span class="input-group-text col-3 fw-bold bg-warning text-white border border-3 border border-warning" id="bookDetail">제품 상세설명</span>
-	  <textarea rows="3" name="bookDetail" class="form-control border border-3 border border-warning text-body-tertiary" aria-label="With textarea" placeholder="상세설명입력" ></textarea>
+	  <label for="files" class="input-group-text col-3 fw-bold text-white bg-warning border border-3 border border-warning">Image</label>
+	  <input type="file" class ="form-control border border-3 border border-warning" id ="files" name="pic">
 	</div>
 	
 		<div class="input-group mb-4 ">

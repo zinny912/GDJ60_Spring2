@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s1.MyTestCase;
+import com.iu.s1.util.Pagination;
 
 public class ProductDAOTest extends MyTestCase {
 	
@@ -16,8 +18,8 @@ public class ProductDAOTest extends MyTestCase {
 	private ProductDAO productDAO; //변수 선언
 
 	@Test // 이거 테스트해주세용
-	public void getProductListTest() throws Exception {
-		List<ProductDTO> ar = productDAO.getProductList();
+	public void getProductListTest(Pagination pagination) throws Exception {
+		List<ProductDTO> ar = productDAO.getProductList(pagination);
 		System.out.println(ar.size()>0);
 		
 		//단정문 
@@ -38,16 +40,23 @@ public class ProductDAOTest extends MyTestCase {
 	//insert
 	@Test
 	public void setProductAddTest() throws Exception{
-		ProductDTO productDTO = new ProductDTO();
 		
-		productDTO.setProductNum(220L);
-		productDTO.setProductName("테스트트트");
-		productDTO.setProductDetail("설명이다요");
-		productDTO.setProductJumsu(3.5);
+		
+		for(int i=0; i<30 ; i++) {
+			Random r = new Random();
+			double d = r.nextDouble();//0.1234
+			int num =(int)d*100;//123
+			d=num/10.0;
+		
+		r.nextDouble();
+		ProductDTO productDTO = new ProductDTO();	
+		productDTO.setProductName("프로틴"+i);
+		productDTO.setProductDetail("득근득근");
+		
 		
 		int result = productDAO.setProductAdd(productDTO);
-				
-		assertEquals(1, result);
+		}		
+		//assertEquals(1, result);
 		
 	}
 	

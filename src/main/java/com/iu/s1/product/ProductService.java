@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s1.util.Pagination;
+
 @Service
 public class ProductService {
 	
@@ -17,8 +19,14 @@ public class ProductService {
 		return productDAO.getProductDetail(productDTO);
 	}
 	
-	public List<ProductDTO> getProductList()throws Exception{
-		return productDAO.getProductList();
+	public List<ProductDTO> getProductList(Pagination pagination )throws Exception{
+		
+		Long totalCount = productDAO.getProductCount(pagination);
+		
+		pagination.maskNum(totalCount);
+		pagination.makeRow();
+		
+		return productDAO.getProductList(pagination);
 	}
 	
 	

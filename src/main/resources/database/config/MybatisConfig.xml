@@ -7,12 +7,13 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="com.iu.s1.product.ProductDTO" alias="ProductDTO"/>
-  		
   		<typeAlias type="com.iu.s1.member.MemberDTO" alias ="MemberDTO"/>
-  		
-  		<typeAlias type="com.iu.s1.bankBook.BankBookDTO" alias ="BankBookDTO"/>
-  		
+ 		<typeAlias type="com.iu.s1.bankBook.BankBookDTO" alias ="BankBookDTO"/>
   		<typeAlias type="com.iu.s1.member.RoleDTO" alias="RoleDTO"/>
+  		<typeAlias type="com.iu.s1.util.Pager" alias="Pager"/>
+  		<typeAlias type="com.iu.s1.util.Pagination" alias="Pagination"/>
+  		
+  		
   		
   		<typeAlias type="java.lang.Long" alias="Long"/>
   	

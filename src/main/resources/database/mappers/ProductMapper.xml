@@ -11,10 +11,16 @@
   	</select>
   
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->
-  	<select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  		SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
-  		FROM PRODUCT 
-  		ORDER BY PRODUCTNUM DESC
+  	<select id="getProductList" parameterType="Pagination" resultType="ProductDTO" statementType="PREPARED">
+  		SELECT * FROM
+  			(
+				SELECT ROWNUM R, P.* FROM
+					(
+						SELECT * FROM PRODUCT
+						ORDER BY PRODUCTNUM DESC
+					) P
+			)
+			WHERE R BETWEEN #{strartRow} AND #{lastRow}
   	</select>
   	
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->
@@ -24,8 +30,8 @@
   	
   	<!-- insert, update, delete 는 resultType이 존재하지 않는다 -->
   	<insert id="setProductAdd" parameterType="ProductDTO">
-  		INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
-  		VALUES(#{productNum}, #{productName}, #{productDetail}, 0.0)
+  		INSERT INTO PRODUCT 
+  		VALUES(PRODUCT_SEQ.NEXTVAL, #{productName}, #{productDetail}, 0.0)
   	</insert>
  									<!-- java.lang.Long 에는 productNum이 없음 DTO가 아님 -->
  	<delete id="setProductDelete" parameterType="Long">
@@ -33,5 +39,7 @@
  		DELETE PRODUCT WHERE PRODUCTNUM=#{productNum}
  			
  	</delete>
+ 	
+ 	
   
   </mapper>

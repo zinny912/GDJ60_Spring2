@@ -46,8 +46,11 @@ import org.springframework.web.servlet.ModelAndView;
 		public ModelAndView getMemberLogin(MemberDTO memberDTO, HttpServletRequest request) throws Exception{
 			ModelAndView mv = new ModelAndView();
 			memberDTO = memberService.getMemberLogin(memberDTO);
-			HttpSession session = request.getSession();
-			session.setAttribute("member", memberDTO);
+			if(memberDTO != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("member", memberDTO);
+			}
+
 			mv.setViewName("redirect:../");
 			return mv;
 		
@@ -62,19 +65,28 @@ import org.springframework.web.servlet.ModelAndView;
 			return mv;
 		}
 		
+		//controller에 있는 메서드를 호출하는 DS
 		//마이페이지
 		@RequestMapping(value="memberPage", method=RequestMethod.GET)
-		public ModelAndView getMemberPage()throws Exception{
+		public ModelAndView getMemberPage(HttpSession session)throws Exception{
 			ModelAndView mv = new ModelAndView();
-			
+			//Object여서 다형성으로 형변환 진행해줘야함
+			MemberDTO memberDTO =(MemberDTO)session.getAttribute("member");
+			//DTO에 새로운 주소가 들어오는 거지 memberService.getMemberPage의 정보가 들어가는게 아님
+			memberDTO=memberService.getMemberPage(memberDTO);
+			mv.addObject("dto",memberDTO);
 			mv.setViewName("member/memberPage");
 			return mv;
 		}
 		
 		//정보수정
 		@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-		public ModelAndView setMemberUpdate() throws Exception{
+		public ModelAndView setMemberUpdate(HttpSession session) throws Exception{
 			ModelAndView mv = new ModelAndView();
+			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+			
+			memberDTO = memberService.getMemberPage(memberDTO);
+			mv.addObject("dto",memberDTO);
 			mv.setViewName("member/memberUpdate");
 			return mv;
 		}
@@ -87,9 +99,10 @@ import org.springframework.web.servlet.ModelAndView;
 			MemberDTO sessionMemberDTO =(MemberDTO)session.getAttribute("member");
 			memberDTO.setId(sessionMemberDTO.getId());
 			int result = memberService.setMemberUpdate(memberDTO); //업데이트 성공여부 확인
-			if(result>0) {
-				session.setAttribute("member", memberDTO);
-			}
+//			if(result>0) {
+//				session.setAttribute("member", memberDTO);
+//			}
+			
 			mv.setViewName("redirect:./memberPage");
 		
 			return mv;

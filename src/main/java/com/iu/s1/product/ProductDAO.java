@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.iu.s1.util.DBConnection;
+import com.iu.s1.util.Pagination;
 
 @Repository
 public class ProductDAO {
@@ -87,8 +88,14 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
 	}
 	
-	public List<ProductDTO> getProductList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getProductList");
+	
+	public Long getProductCount(Pagination pagination) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getProductCount", pagination);
+	}
+	
+	
+	public List<ProductDTO> getProductList(Pagination pagination)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getProductList", pagination);
 	}
 	
 	public int setProductAdd(ProductDTO productDTO)throws Exception{
