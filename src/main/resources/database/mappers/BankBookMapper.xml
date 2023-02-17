@@ -69,9 +69,34 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow} 
     </select>
   	
-  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">
-  		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
+  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO" resultMap="BankBookDetailResult">
+  		SELECT * 
+  			FROM BANKBOOK 
+			LEFT OUTER JOIN 
+			BANKBOOKIMG 
+			USING (BOOKNUMBER)
+		WHERE BOOKNUMBER = #{bookNumber}
   	</select>
+  	
+  	<resultMap type="BankBookDTO" id="BankBookDetailResult">
+  		<!-- Primary Key -->
+  		<id column="BOOKNUMBER" property="bookNumber"/>
+  		<!-- Primary Key를 제외한 그외 나머지 property에는 setter -->
+  		<result column="BOOKNAME" property="bookName"/>
+  		<result column="BOOKDETAIL" property="bookDetail"/>
+  		<result column="BOOKRATE" property="bookRate"/>
+  		<result column="BOOKSALE" property="bookSale"/>
+  		<!-- 1:1 -->
+  		<association property="bankBookImgDTO" javaType="BankBookImgDTO">
+  			<id column="FILENUM" property="fileNum"/>
+  		<!-- BOOKNUMBER는 BANKBOOKDTO에서 가져오므로 생략가능 써도되긴함	<result column="BOOKNUMBER" property="bookNumber"/> -->
+  			<result column="FILENAME" property="fileName"/>
+  			<result column="ORINAME" property="oriName"/>
+  		</association>
+  		<!-- 1:N -->
+  		<!-- <collection property=""></collection> -->
+  	</resultMap>
+  	
   
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
   		<selectKey keyProperty="bookNumber" resultType="Long" order="BEFORE">
@@ -94,7 +119,6 @@
 	<insert id="setBankBookImg" parameterType="BankBookImgDTO">
 		INSERT INTO BANKBOOKIMG
 		VALUES (BANKBOOK_SEQ.NEXTVAL, #{bookNumber},#{fileName},#{oriName})
-	
 	</insert>
 	
 	

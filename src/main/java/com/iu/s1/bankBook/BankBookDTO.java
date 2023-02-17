@@ -5,8 +5,9 @@ public class BankBookDTO {
 	private Long bookNumber;
 	private String bookName;
 	private Double bookRate;
-	private int bookSale;
+	private Integer bookSale;
 	private String bookDetail;
+	private BankBookImgDTO bankBookImgDTO;
 	
 	
 	
@@ -29,10 +30,11 @@ public class BankBookDTO {
 	public void setBookRate(double bookRate) {
 		this.bookRate = bookRate;
 	}
-	public int getBookSale() {
+		
+	public Integer getBookSale() {
 		return bookSale;
 	}
-	public void setBookSale(int bookSale) {
+	public void setBookSale(Integer bookSale) {
 		this.bookSale = bookSale;
 	}
 	public String getBookDetail() {
@@ -41,5 +43,12 @@ public class BankBookDTO {
 	public void setBookDetail(String bookDetail) {
 		this.bookDetail = bookDetail;
 	}
+	public BankBookImgDTO getBankBookImgDTO() {
+		return bankBookImgDTO;
+	}
+	public void setBankBookImgDTO(BankBookImgDTO bankBookImgDTO) {
+		this.bankBookImgDTO = bankBookImgDTO;
+	}
+
 
 }

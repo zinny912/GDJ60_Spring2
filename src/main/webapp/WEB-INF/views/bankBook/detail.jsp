@@ -20,6 +20,12 @@
 	<h3>Sale : <c:if test="${dto.bookSale eq 1}">판매중</c:if>
 			   <c:if test="${dto.bookSale ne 1}">판매중단</c:if>
 			   </h3>
+	<div>
+		<c:if test="${not empty dto.bankBookImgDTO}">
+		<img src="../resources/upload/bankBook/${dto.bankBookImgDTO.fileName}">
+		</c:if>
+	</div>
+	
 	
 	<a href="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>		  
 	</c:if>
