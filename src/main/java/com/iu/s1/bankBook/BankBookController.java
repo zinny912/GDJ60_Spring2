@@ -2,11 +2,15 @@ package com.iu.s1.bankBook;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s1.util.Pager;
@@ -67,9 +71,16 @@ public class BankBookController {
 	
 	//add DB Insert
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
+	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = bankBookService.setBankBookAdd(bankBookDTO);
+		
+		System.out.println("Name :" + pic.getName());
+		System.out.println("OriginalFilename :"+pic.getOriginalFilename());
+		System.out.println("Size :"+pic.getSize());
+		System.out.println(session.getServletContext()); //운영체제에게 전달할 목적
+		
+		
+		int result = bankBookService.setBankBookAdd(bankBookDTO,pic);
 		
 		mv.setViewName("redirect:./list");
 		

@@ -18,7 +18,7 @@
 	<h1 class="h4 pb-2 mb-4 fw-bold text-warning border-bottom border-warning">상품등록 PAGE</h1>
 	
 	<!-- 서버로 전송하고 싶은 정보들은 form 태그안에 넣어서 작성 -->
-	<form action="./add" method="POST"> <!-- 같은 위치의 add로 POST 메서드 형식으로 보낼거임 -->
+	<form action="./add" method="POST" enctype="multipart/form-data"> <!-- 같은 위치의 add로 POST 메서드 형식으로 보낼거임 -->
 	
 	<div class="row col-6">
 	 <div class="input-group mb-3">
@@ -29,6 +29,11 @@
 	  <div class="input-group mb-3">
 		  <span class="input-group-text col-3 fw-bold bg-warning text-white border border-3 border border-warning" id="bookRate">이자율</span>
 		  <input type="text" name="bookRate" class="form-control border border-3 border border-warning text-body-tertiary" placeholder="이자율입력" aria-label="Username" aria-describedby="basic-addon1" >
+	 </div>
+	 
+	 <div class="input-group mb-3">
+		  <span class="input-group-text col-3 fw-bold bg-warning text-white border border-3 border border-warning" id="bookDetail">상세정보</span>
+		  <textarea type="text" name="bookDetail" class="form-control border border-3 border border-warning text-body-tertiary" placeholder="상세정보입력" aria-label="Username" aria-describedby="basic-addon1" ></textarea>
 	 </div>
 	 
 	<div class="input-group mb-3">

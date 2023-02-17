@@ -65,7 +65,7 @@
 				      </a>
 				  	 </li>
 				  	<li class="page-item">
-				      <a class="page-link " href="./list?page=${pager.page-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
+				      <a class="page-link " href="./list?page=${pager.page-pager.perBlock}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 				        <span aria-hidden="true">&lsaquo;</span>
 				      </a>
 				    </li>
@@ -73,13 +73,13 @@
 				    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" step="1" var="i">
 				    <li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 				    </c:forEach>
+				    
 				    <li class="page-item" >
-				      <a class="page-link" href="./list?page=${pager.totalPage}" aria-label="Next">
+				      <a class="page-link" href="./list?page=${pager.page+pager.perBlock}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
 				        <span aria-hidden="true">&rsaquo;</span>
 				      </a>
 				    </li>
-				    
-				    
+				 				    
 				    <li class="page-item" ${pager.after eq false ? 'disabled':''} >
 				      <a class="page-link" href="./list?page=${pager.totalPage}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
