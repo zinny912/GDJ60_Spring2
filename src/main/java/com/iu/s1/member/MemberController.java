@@ -14,8 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 	@RequestMapping("/member/**")
 	public class MemberController {
 		
+		
 		@Autowired
 		private MemberService memberService;
+		
+		@RequestMapping(value = "memberAgree", method=RequestMethod.GET)
+		public void setMemberAgree()throws Exception{
+			
+		}
 		
 		//회원가입
 		@RequestMapping(value = "memberAdd", method = RequestMethod.GET)
