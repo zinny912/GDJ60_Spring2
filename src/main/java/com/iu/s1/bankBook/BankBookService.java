@@ -17,7 +17,7 @@ public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	//testcase 테스트시 mull이 들어옴
+	//testcase 테스트시 null이 들어옴
 	//API추가
 	@Autowired
 	private ServletContext servletContext;
