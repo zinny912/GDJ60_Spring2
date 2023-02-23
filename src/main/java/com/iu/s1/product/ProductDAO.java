@@ -79,7 +79,6 @@ public class ProductDAO {
 		
 		return result;
 	}
-	
 		
 	//--------------------------------------
 	

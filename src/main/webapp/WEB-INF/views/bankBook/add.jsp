@@ -36,11 +36,14 @@
 		  <textarea type="text" name="bookDetail" class="form-control border border-3 border border-warning text-body-tertiary" placeholder="상세정보입력" aria-label="Username" aria-describedby="basic-addon1" ></textarea>
 	 </div>
 	 
-	<div class="input-group mb-3">
-	  <label for="files" class="input-group-text col-3 fw-bold text-white bg-warning border border-3 border border-warning">Image</label>
-	  <input type="file" class ="form-control border border-3 border border-warning" id ="files" name="pic">
+
+	 <div id="fileList">
+		<!-- <div class="input-group mb-3">
+		<label for="files" class="input-group-text col-3 fw-bold text-white bg-warning border border-3 border border-warning">Image</label>
+		<input type="file" class ="form-control border border-3 border border-warning" id ="files" name="pic">
+		</div> -->
+		<button type="button" id="fileAdd">ADD</button>
 	</div>
-	
 		<div class="input-group mb-4 ">
 		  <label class="input-group-text col-3 fw-bold text-white bg-warning border border-3 border border-warning" for="bookSale">판매여부</label>
 		  <select class="form-select border border-3 border border-warning" name="bookSale" id="bookSale">
@@ -57,6 +60,15 @@
 					
 	</form>
 </div>	
+
+
+<script src="../resources/js/fileManager.js"></script>
+
+<script>
+	setMax(3);
+</script>
+
+
 </body>
 </html>
 	
