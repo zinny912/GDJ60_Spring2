@@ -19,7 +19,7 @@ public class BankBookService {
 	
 	//testcase 테스트시 null이 들어옴
 	//API추가
-	@Autowired
+	//@Autowired //test 할때 ServletContext 가 반응안됨. 주석처리 후 test끝나면 다시 설정
 	private ServletContext servletContext;
 	@Autowired
 	private FileManager fileManager;

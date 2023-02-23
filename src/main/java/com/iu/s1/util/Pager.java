@@ -2,6 +2,9 @@ package com.iu.s1.util;
 
 public class Pager {
 	
+	private Long bookNumber;
+	
+	
 	//검색 종류(사용할 column) : Kind
 	private String kind;
 	//검색어
@@ -227,4 +230,23 @@ public class Pager {
 		this.before = before;
 	}
 
+
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+
+
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
+
+
+	public void makeBlock(Long totalCount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
 }
