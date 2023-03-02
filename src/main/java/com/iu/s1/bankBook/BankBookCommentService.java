@@ -14,16 +14,17 @@ import com.iu.s1.util.Pager;
 public class BankBookCommentService implements BbsService {
 
    @Autowired
-   private BbsDAO bankbookCommentDAO;
-   //private BankbookCommentDAO bankbookCommentDAO;
+   private BbsDAO bankBookCommentDAO;
+   //private bankBookCommentDAO bankBookCommentDAO;
    
    
    @Override
    public List<BbsDTO> getBoardList(Pager pager) throws Exception {
       pager.makeRow();
-      Long totalCount = bankbookCommentDAO.getTotalCount(pager);
-      pager.makeBlock(totalCount);
-      return bankbookCommentDAO.getBoardList(pager);
+
+		pager.makeNum(bankBookCommentDAO.getTotalCount(pager));
+		
+		return bankBookCommentDAO.getBoardList(pager);
    }
 
    @Override

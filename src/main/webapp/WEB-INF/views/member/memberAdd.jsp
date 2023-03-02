@@ -36,15 +36,15 @@
 						<div id = "idResult" class="redResult"></div>
 					</div>
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">PASSWORD</label>
-						<input type="password" id="pwd1" name="pwd1" class="form-control border-danger" placeholder="비밀번호입력">
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="pw">PASSWORD</label>
+						<input type="password" id="pw" name="pw" class="form-control border-danger" placeholder="비밀번호입력">
 						<div id="pwResult" class="redResult"></div>
 					</div>		
 
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">PASSWORD</label>
-						<input type="password" id="pwd2" name="pwd2" class="form-control border-danger" placeholder="비밀번호입력">
-						<div id="pwCheck" class="redResult"></div>
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="pw">PASSWORD</label>
+						<input type="password" id="pwCheck" name="pw" class="form-control border-danger" placeholder="비밀번호입력">
+						<div id="pwCheckResult" class="redResult"></div>
 					</div>
 
 					<div class="input-group mb-3">

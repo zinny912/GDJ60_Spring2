@@ -2,11 +2,11 @@
 const id = document.getElementById("id");
 const idResult = document.getElementById("idResult");
 
-const pwd1 = document.getElementById("pwd1");
+const pwd1 = document.getElementById("pw");
 const pwResult = document.getElementById("pwResult");
 
-const pwd2 = document.getElementById("pwd2");
-const pwCheck = document.getElementById("pwCheck");
+const pwd2 = document.getElementById("pwCheck");
+const pwCheck = document.getElementById("pwCheckResult");
 
 const frm = document.getElementById("frm");
 const btn = document.getElementById("btn");
@@ -32,7 +32,7 @@ const phoneCheck = document.getElementById("phoneCheck");
 // let addressCheck=false;
 // let phoneCheck=false;
 
-let checks = [false, false, false, false, false, false, false];
+let checks = [false, false, false, false];
 
 
 //중요도가 높은것을 먼저 수행 중요도가 떨어지는 것을 else로 
@@ -55,8 +55,8 @@ id.addEventListener("blur", function(){
 
 
 //pw검증
-pwd1.addEventListener("keyup", function(){
-    if(pwd1.value.length>5 && pwd1.value.length<13){
+pw.addEventListener("keyup", function(){
+    if(pw.value.length>5 && pw.value.length<13){
         pwResult.innerHTML="정상적인 비번입니다"
         //pwLengthCheck=true;
         checks[1]=true;
@@ -72,8 +72,8 @@ pwd1.addEventListener("keyup", function(){
 });
 
 
-pwd1.addEventListener("blur", function(){
-    if(pwd1.value!=''){
+pw.addEventListener("blur", function(){
+    if(pw.value!=''){
         //pwNullCheck=true;
         checks[2]=true;
     }else{
@@ -84,33 +84,34 @@ pwd1.addEventListener("blur", function(){
     }    
 });
 
+pw.addEventListener("change", function(){
+    checks[3]=false;
+    pwCheck.value='';
+    pwCheckResult.innerHTML='pw가 틀립니다.';
+    pwCheckResult.classList.add('redResult');
+    pwCheckResult.classList.remove('blueResult');
+
+});
 
 //PW Equal 검증
-pwd2.addEventListener("blur", function(){
-    if(pwd2.value == pwd1.value){
-        pwCheck.innerHTML="동일한 PW"
+pwCheck.addEventListener("blur", function(){
+    if(pwCheck.value == pw.value){
+        pwCheckResult.innerHTML="동일한 PW"
         //pwEqualCheck=true;
         checks[3]=true;
-        pwCheck.classList.add('blueResult');
-        pwCheck.classList.remove('redResult');
+        pwCheckResult.classList.add('blueResult');
+        pwCheckResult.classList.remove('redResult');
     }else{
-        pwCheck.innerHTML="틀렸습니다"
+        pwCheckResult.innerHTML="틀렸습니다"
         checks[3]=false;
-        pwCheck.classList.add('redResult');
-        pwCheck.classList.remove('blueResult');
+        pwCheckResult.classList.add('redResult');
+        pwCheckResult.classList.remove('blueResult');
        
     }
 
 });
 
-pwd1.addEventListener("change", function(){
-    checks[3]=false;
-    pwCheck.value="";
-    pwResult.innerHTML='pw가 틀립니다.';
-    pwResult.classList.add('redResult');
-    pwResult.classList.remove('blueResult');
 
-});
 
 // 이름 검증
 name1.addEventListener("blur", function(){
@@ -169,7 +170,7 @@ btn.addEventListener("click", function(){
     
     if(!checks.includes(false)) {
         alert('회원가입 성공')
-        //frm.submit();
+        frm.submit();
     }else{
         alert("필수사항을 입력하세요")
     }

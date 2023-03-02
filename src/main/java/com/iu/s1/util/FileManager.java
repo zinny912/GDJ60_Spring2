@@ -11,6 +11,17 @@ import org.springframework.web.multipart.MultipartFile;
 @Component
 public class FileManager {
 	
+	//File을 HDD에서 삭제 //boolean, int result 하고싶은걸로 하면됨 // 삭제 여부 상관없이 삭제하려면 void
+	public boolean fileDelete(String path, String fileName)throws Exception{
+		File file = new File(path, fileName);
+		
+		return file.delete();
+		
+	}
+	
+	
+	
+	
 	//File을 HDD에 저장
 	//service에서 할 역할 클래스 새로 생성하여 작성
 	public String fileSave(MultipartFile multipartFile, String path) throws Exception{

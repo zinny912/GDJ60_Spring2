@@ -14,8 +14,9 @@
   		
   		<typeAlias type="com.iu.s1.board.BbsDTO" alias="BbsDTO"/>
   		<typeAlias type="com.iu.s1.board.BoardDTO" alias="BoardDTO"/>
+  		<typeAlias type="com.iu.s1.board.BoardFileDTO" alias="BoardFileDTO"/>
   		
-  		<typeAlias type="com.iu.s1.board.notice.NoticeDTO" alias="NoticDTO"/>
+  		<typeAlias type="com.iu.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
   		<typeAlias type="com.iu.s1.board.qna.QnaDTO" alias="QnaDTO"/>
   		
   		<typeAlias type="com.iu.s1.member.MemberDTO" alias ="MemberDTO"/>

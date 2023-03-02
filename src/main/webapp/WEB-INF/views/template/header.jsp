@@ -9,10 +9,10 @@
     	</button>
  		 <div class="collapse navbar-collapse" id="navbarSupportedContent">
  				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active" href="#">NOTICE</a></li>
+					<li class="nav-item"><a class="nav-link active" href="/notice/list">NOTICE</a></li>
 					<li class="nav-item"><a class="nav-link active" href="/product/list">PRODUCT</a></li>
 					<li class="nav-item"><a class="nav-link active" href="/bankBook/list">BANKING</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#">ETC</a></li>
+					<li class="nav-item"><a class="nav-link active" href="/qna/list">QNA</a></li>
 				</ul>
 				
 				<ul class="navbar-nav">
@@ -20,7 +20,7 @@
 					<li class="nav-item"><a class="nav-link" href="/member/memberLogin">LOGIN</a></li>
 					<li class="nav-item"><a class="nav-link" href="/member/memberAgree">JOIN</a></li>
 					</c:if>
-					<c:if test="${not empty member }">
+					<c:if test="${not empty member}">
 					<li class="nav-item"><a class="nav-link" href="/member/memberPage">MYPAGE</a></li>
 					<li class="nav-item"><a class="nav-link" href="/member/memberLogout">LOGOUT</a></li>
 					</c:if>
@@ -29,11 +29,10 @@
 					<li class="nav-item"><a class="nav-link" href="#">JP</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">CN</a></li>
 				</ul>
- 				
- 	
- 
- 
- 	</div>
+ 		
+ 		</div>
+
+	</div>
 </nav>
 	
 	

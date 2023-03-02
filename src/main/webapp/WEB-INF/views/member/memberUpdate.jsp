@@ -11,26 +11,26 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 
-<div class="my-5">
+<div class="container-fluid my-5">
 	<h1>회원정보 수정</h1>
 		<form class="row col-6" action="./memberUpdate" method="post"> 
 			
 							
 				<div class="input-group mb-3">
-				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="name">이름</span>
-				  <input type="text" name="name" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.name}" placeholder="이름입력" aria-label="Username" aria-describedby="basic-addon1">
+				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >이름</span>
+				  <input type="text" id="name" name="name" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.name}" placeholder="이름입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
-				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="phone">휴대폰번호</span>
-				  <input type="text" name="phone" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.phone}" placeholder="연락처입력" aria-label="Username" aria-describedby="basic-addon1">
+				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >휴대폰번호</span>
+				  <input type="text" id="phone" name="phone" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.phone}" placeholder="연락처입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
-				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="email">이메일주소</span>
-				  <input type="text" name="email" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.email}" placeholder="E-mail입력" aria-label="Username" aria-describedby="basic-addon1">
+				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >이메일주소</span>
+				  <input type="text" id="email" name="email" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.email}" placeholder="E-mail입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
-				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" id="address">주소</span>
-				  <input type="text" name="address" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.address}" placeholder="주소지입력" aria-label="Username" aria-describedby="basic-addon1">
+				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >주소</span>
+				  <input type="text" id="address" name="address" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.address}" placeholder="주소지입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 							
 			  <div class="col-12">

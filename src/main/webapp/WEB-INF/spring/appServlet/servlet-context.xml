@@ -14,13 +14,46 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/images/**" location="/images/" />
+	
+	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="1"></beans:property>
 	</beans:bean>
+	
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"></beans:property>
+		<!--       order value 숫자가 낮을수록 우선순위      -->  
+	</beans:bean>
+	
+	<beans:bean class="com.iu.s1.interceptors.AdminCheckInterceptor" id="adminCheckInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/qna/*"/>
+			<exclude-mapping path="/qna/list"/>
+			<beans:ref bean="memberCheckInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/notice/*"/>
+			<exclude-mapping path="/notice/list"/>
+			<exclude-mapping path="/notice/detail"/>
+			<beans:ref bean="adminCheckInterceptor"/>
+			<!-- <beans:bean class="com.iu.s1.interceptors.AdminCheckInterceptor"/>-->
+			
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/qna/update"/>
+			<mapping path="/qna/delete"/>
+			<mapping path="/notice/update"/>
+			<mapping path="/notice/delete"/>
+			<beans:ref bean = "ownerCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="com.iu.s1"/>
 	
