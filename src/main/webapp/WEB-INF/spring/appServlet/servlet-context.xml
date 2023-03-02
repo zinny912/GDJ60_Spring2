@@ -30,10 +30,16 @@
 	</beans:bean>
 	
 	<beans:bean class="com.iu.s1.interceptors.AdminCheckInterceptor" id="adminCheckInterceptor"></beans:bean>
+	
 	<interceptors>
 		<interceptor>
 			<mapping path="/qna/*"/>
+			<mapping path="/member/*"/>
 			<exclude-mapping path="/qna/list"/>
+			<exclude-mapping path="/member/memberLogin"/>
+			<exclude-mapping path="/member/memberAdd"/>
+			<exclude-mapping path="/member/memberAgree"/>
+			
 			<beans:ref bean="memberCheckInterceptor"/>
 		</interceptor>
 		

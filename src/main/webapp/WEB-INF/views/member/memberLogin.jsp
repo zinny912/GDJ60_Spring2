@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<div class="container fluid">
+	<div class="container-fluid">
 		<div class = "my-5">
 			<h1 class="h4 pb-2 mb-4 fw-bold text-danger border-bottom border-danger">로그인 PAGE</h1>
 		

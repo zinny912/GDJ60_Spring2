@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
 	
-	<style>
+<style>
 		.redResult{
 			color : red;
 
@@ -18,13 +18,10 @@
 			color : blue;
 		}
 
-	</style>
-
-
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
 <div class="container fluid my-5">	
 	<div class = "row col-6">
 		<h1 class ="h4 pb-2 mb-4 fw-bold text-danger border-bottom border-danger">회원가입 PAGE</h1>
@@ -54,12 +51,12 @@
 					</div>
 					<div class="input-group mb-3">
 						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >휴대폰번호</label>
-						<input type="text" id="phone" name="phone" class="form-control border-danger text-body-tertiary" placeholder="연락처입력">
+						<input type="tel" id="phone" name="phone" class="form-control border-danger text-body-tertiary" placeholder="연락처입력">
 						<div id="phoneCheck" class="redResult"></div>
 					</div>
 					<div class="input-group mb-3">
 						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">이메일주소</label>
-						<input type="text" id="email" name="email" class="form-control border-danger text-body-tertiary" placeholder="E-mail입력">
+						<input type="email" id="email" name="email" class="form-control border-danger text-body-tertiary" placeholder="E-mail입력">
 					<div id = "emailCheck" class="redResult"></div>
 					</div>
 					<div class="input-group mb-3">
@@ -76,7 +73,7 @@
 		</div>
 		
 </div>			
-	<script type="text/javascript" src="../resources/js/memberAdd.js"></script>
+	<script src="../resources/js/memberAdd.js"></script>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

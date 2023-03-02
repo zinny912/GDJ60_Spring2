@@ -26,6 +26,7 @@ public class MemberCheckInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 		System.out.println("로그인 안한 경우");
+		
 //		//1.Forward Jsp
 //		request.setAttribute("result", "권한이 없습니다");
 //		request.setAttribute("url", "../member/memberLogin");

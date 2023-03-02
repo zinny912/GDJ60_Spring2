@@ -24,6 +24,7 @@ public class MemberService {
 	   //password check
 	   if(result != null && memberDTO.getPw().equals(result.getPw())) {
 		   memberDTO.setPw(null);
+		   
 		   memberDTO.setRoleDTO(result.getRoleDTO());
 		   return memberDTO;
 	   }else {
@@ -36,10 +37,10 @@ public class MemberService {
 	   
    }
    
-   //마이페이지
-   public MemberDTO setMemberPage(MemberDTO memberDTO) throws Exception{
-	   return memberDAO.getMemberPage(memberDTO);
-   }
+//   //마이페이지
+//   public MemberDTO setMemberPage(MemberDTO memberDTO) throws Exception{
+//	   return memberDAO.getMemberPage(memberDTO);
+//   }
    
    //정보수정
    public int setMemberUpdate(MemberDTO memberDTO) throws Exception{

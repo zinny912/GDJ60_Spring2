@@ -59,7 +59,7 @@ public class OwnerCheckInterceptor extends HandlerInterceptorAdapter {
 			request.setAttribute("result", "작성자만 가능");
 			request.setAttribute("uri", "./list");
 			
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/board/detail");
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);
 			return false;
 		}
