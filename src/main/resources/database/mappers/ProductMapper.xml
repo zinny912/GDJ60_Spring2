@@ -38,9 +38,11 @@
  	<delete id="setProductDelete" parameterType="Long">
  							<!-- DAO에 선언된 변수명입력↓ -->
  		DELETE PRODUCT WHERE PRODUCTNUM=#{productNum}
- 			
  	</delete>
  	
  	
+  
+  
+  
   
   </mapper>
