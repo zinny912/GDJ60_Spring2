@@ -25,9 +25,11 @@
 <div class="container fluid my-5">	
 	<div class = "row col-6">
 		<h1 class ="h4 pb-2 mb-4 fw-bold text-danger border-bottom border-danger">회원가입 PAGE</h1>
+	</div>
 	
+		<div class="input-group mb-3">
 			<form id = "frm" class="row" action="./memberAdd" method="post"> 
-					<div class="input-group mb-3">
+					<div class="mb-3">
 						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">ID</label>
 						<input type="text" id="id" name="id" class="form-control border-danger" placeholder="아이디">
 						<div id = "idResult" class="redResult"></div>

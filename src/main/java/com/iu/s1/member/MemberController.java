@@ -87,7 +87,7 @@ import org.springframework.web.servlet.ModelAndView;
 		
 		//정보수정
 		@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-		public ModelAndView setMemberUpdate(HttpSession session) throws Exception{
+		public ModelAndView getMemberUpdate(HttpSession session) throws Exception{
 			ModelAndView mv = new ModelAndView();
 			MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 			
@@ -99,7 +99,7 @@ import org.springframework.web.servlet.ModelAndView;
 		
 		//정보수정 리다이렉트
 		@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
-		public ModelAndView setMemberUpdate(MemberDTO memberDTO, HttpSession session)throws Exception{
+		public ModelAndView getMemberUpdate(MemberDTO memberDTO, HttpSession session)throws Exception{
 			ModelAndView mv = new ModelAndView();
 			
 			MemberDTO sessionMemberDTO =(MemberDTO)session.getAttribute("member");

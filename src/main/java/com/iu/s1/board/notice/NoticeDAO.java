@@ -21,29 +21,29 @@ public class NoticeDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private final String Namespace="com.iu.s1.board.notice.NoticeDAO.";
+	private final String NAMESPACE="com.iu.s1.board.notice.NoticeDAO.";
 	
 	@Override
 	public Long getTotalCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(Namespace+"getTotalCount",pager);
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount",pager);
 	}
 	
 	
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(Namespace+"getBoardList",pager);
+		return sqlSession.selectList(NAMESPACE+"getBoardList",pager);
 	}
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.insert(Namespace+"setBoardAdd",bbsDTO);
+		return sqlSession.insert(NAMESPACE+"setBoardAdd",bbsDTO);
 	}
 	@Override
 	public int setBoardFileAdd(BoardFileDTO boardfileDTO) throws Exception{
-		return sqlSession.insert(Namespace+"setBoardFileAdd", boardfileDTO);
+		return sqlSession.insert(NAMESPACE+"setBoardFileAdd", boardfileDTO);
 	}
 
 	@Override
@@ -55,18 +55,24 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.delete(Namespace+"setBoardDelete",bbsDTO);
+		return sqlSession.delete(NAMESPACE+"setBoardDelete",bbsDTO);
 	}
 
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(Namespace+"getBoardDetail",boardDTO);
+		return sqlSession.selectOne(NAMESPACE+"getBoardDetail",boardDTO);
 	}
 	
 	@Override
 	public List<BoardFileDTO> getBoardFileList(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(Namespace+"getBoardFileList",bbsDTO);
+		return sqlSession.selectList(NAMESPACE+"getBoardFileList",bbsDTO);
+	}
+	
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"getBoardFileDetail", boardFileDTO);
 	}
 }

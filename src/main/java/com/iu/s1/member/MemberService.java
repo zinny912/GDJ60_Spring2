@@ -44,8 +44,8 @@ public class MemberService {
    
    //정보수정
    public int setMemberUpdate(MemberDTO memberDTO) throws Exception{
-	   int result = memberDAO.setMemberUpdate(memberDTO);
-	   return result; 
+
+	   return memberDAO.setMemberUpdate(memberDTO); 
    }
 
 }

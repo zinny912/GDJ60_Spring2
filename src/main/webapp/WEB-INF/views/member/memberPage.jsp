@@ -15,6 +15,7 @@
 		<div class="row">
 			<h1>Member Page</h1>
 		</div>
+		
 		<div class="row">
 			<h3>Name : ${dto.name}</h3>
 			<h3>Phone : ${dto.phone}</h3>

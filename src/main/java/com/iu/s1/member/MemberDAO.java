@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import oracle.net.aso.m;
 
 @Repository
 public class MemberDAO {
@@ -26,10 +27,10 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
 	}
 		
-	//개인정보페이지
-	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getMemberPage", memberDTO);
-	}
+//	//개인정보페이지
+//	public MemberDTO getMemberPage(MemberDTO memberDTO) throws Exception{
+//		return sqlSession.selectOne(NAMESPACE+"getMemberPage", memberDTO);
+//	}
 	
 	//정보수정
 	public int setMemberUpdate(MemberDTO memberDTO) throws Exception{

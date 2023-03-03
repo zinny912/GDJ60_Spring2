@@ -18,8 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BoardDTO;
 import com.iu.s1.board.BoardFileDTO;
-import com.iu.s1.board.BoardService;
 import com.iu.s1.util.Pager;
+
+
 
 @Controller
 @RequestMapping("/qna/**")
@@ -90,7 +91,7 @@ public class QnaController {
 	
 	//어느글에 대한 답글인지를 알아야하기 때문에 DTO필요 NUM들어있는 DTO
 	@GetMapping("reply")
-	public ModelAndView setReplyAdd(BoardDTO boardDTO)throws Exception{
+	public ModelAndView setReplyAdd(BoardDTO qnaDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("board/reply");
@@ -131,6 +132,18 @@ public class QnaController {
 		mv.addObject("url", "./list");
 		return mv;
 	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardFileDTO = qnaService.getBoardFileDetail(boardFileDTO);
+		
+		mv.addObject("boardFile", boardFileDTO);
+		mv.setViewName("fileDownView");
+		
+		return mv;
+	}
+	
 	@GetMapping("update")
 	public ModelAndView setBoardUpdate(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -138,7 +151,7 @@ public class QnaController {
 		
 		mv.addObject("dto",boardDTO);
 		
-		mv.setViewName("board/update.jsp");
+		mv.setViewName("board/update");
 		return mv;
 	}
 	

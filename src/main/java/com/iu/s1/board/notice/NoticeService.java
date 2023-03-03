@@ -33,14 +33,13 @@ public class NoticeService implements BoardService{
 	}
 
 	
-	
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO, MultipartFile[] multipartFiles, HttpSession session) throws Exception {
 		// TODO Auto-generated method stub
 		int result = noticeDAO.setBoardAdd(bbsDTO);
 		
 		//file HDD에 저장
-			String realPath = session.getServletContext().getRealPath("resources/upload/notice");
+			String realPath = session.getServletContext().getRealPath("resources/upload/notice/");
 			System.out.println(realPath);
 		
 			for(MultipartFile multipartFile: multipartFiles) {
@@ -74,7 +73,7 @@ public class NoticeService implements BoardService{
 		int result = noticeDAO.setBoardDelete(bbsDTO);
 		
 		if(result>0) {
-			String realPath = session.getServletContext().getRealPath("resources/upload/notice");
+			String realPath = session.getServletContext().getRealPath("resources/upload/notice/");
 		
 			for(BoardFileDTO boardFileDTO: ar) {
 				boolean check = fileManager.fileDelete(realPath, boardFileDTO.getFileName());
@@ -90,4 +89,10 @@ public class NoticeService implements BoardService{
 		return noticeDAO.getBoardDetail(boardDTO);
 	}
 
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.getBoardFileDetail(boardFileDTO);
+	}
+	
 }

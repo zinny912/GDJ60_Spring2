@@ -45,7 +45,7 @@ public class OwnerCheckInterceptor extends HandlerInterceptorAdapter {
 		BoardDTO boardDTO = new BoardDTO();
 		boardDTO.setNum(num);
 		if(uri.equals("notice")) {
-			boardDTO=noticeDAO.getBoardDetail(boardDTO);
+			boardDTO = noticeDAO.getBoardDetail(boardDTO);
 		}else {
 			boardDTO = qnaDAO.getBoardDetail(boardDTO);
 		}

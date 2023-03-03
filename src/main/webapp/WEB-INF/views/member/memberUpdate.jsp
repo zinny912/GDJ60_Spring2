@@ -12,10 +12,11 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container-fluid my-5">
-	<h1>회원정보 수정</h1>
+	<div class="row">
+		<h1>회원정보 수정</h1>
+	</div>
 		<form class="row col-6" action="./memberUpdate" method="post"> 
-			
-							
+										
 				<div class="input-group mb-3">
 				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >이름</span>
 				  <input type="text" id="name" name="name" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.name}" placeholder="이름입력" aria-label="Username" aria-describedby="basic-addon1">

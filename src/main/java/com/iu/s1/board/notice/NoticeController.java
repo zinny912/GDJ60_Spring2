@@ -17,11 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BbsService;
 import com.iu.s1.board.BoardDTO;
-import com.iu.s1.board.BoardService;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
-@RequestMapping("/notice/**")
+@RequestMapping("/notice/*")
 public class NoticeController {
 	
 	@Autowired
@@ -98,13 +98,27 @@ public class NoticeController {
 		mv.addObject("url", "./list");
 		return mv;
 	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardFileDTO = noticeService.getBoardFileDetail(boardFileDTO);
+		
+		mv.addObject("boardFile", boardFileDTO);
+		mv.setViewName("fileDownView");
+		
+		return mv;
+	}
+	
+	
+	
 	@GetMapping("update")
 	public ModelAndView setBoardUpdate(BoardDTO boardDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getBoardDetail(boardDTO);
 		
 		mv.addObject("dto", boardDTO);
-		mv.setViewName("board/update.jsp");
+		mv.setViewName("board/update");
 		
 		return mv;
 	}
