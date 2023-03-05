@@ -19,7 +19,7 @@
 										
 				<div class="input-group mb-3">
 				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >이름</span>
-				  <input type="text" id="name" name="name" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.name}" placeholder="이름입력" aria-label="Username" aria-describedby="basic-addon1">
+				  <input type="text" id="names" name="names" class="form-control border border-3 border border-danger text-body-tertiary" value="${dto.name}" placeholder="이름입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
 				  <span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >휴대폰번호</span>

@@ -12,7 +12,7 @@
   	</select>
   
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->
-  	<select id="getProductList" parameterType="Pagination" resultType="ProductDTO" statementType="PREPARED">
+  	<select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
   		SELECT * FROM
   			(
 				SELECT ROWNUM R, P.* FROM

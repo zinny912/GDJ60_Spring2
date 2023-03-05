@@ -28,54 +28,54 @@
 	</div>
 	
 		<div class="input-group mb-3">
-			<form id = "frm" class="row" action="./memberAdd" method="post"> 
-					<div class="mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">ID</label>
+			<form id = "frm" class="col-md-6" action="./memberAdd" method="post"> 
+					<div class="input-group mb-3">
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="id">ID</label>
 						<input type="text" id="id" name="id" class="form-control border-danger" placeholder="아이디">
-						<div id = "idResult" class="redResult"></div>
+						<div id = "idResult" class=""></div>
 					</div>
 					<div class="input-group mb-3">
 						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="pw">PASSWORD</label>
 						<input type="password" id="pw" name="pw" class="form-control border-danger" placeholder="비밀번호입력">
-						<div id="pwResult" class="redResult"></div>
+						<div id="pwResult"></div>
 					</div>		
 
 					<div class="input-group mb-3">
 						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="pw">PASSWORD</label>
-						<input type="password" id="pwCheck" name="pw" class="form-control border-danger" placeholder="비밀번호입력">
-						<div id="pwCheckResult" class="redResult"></div>
+						<input type="password" id="pwCheck" name="pwCheck" class="form-control border-danger" placeholder="비밀번호입력">
+						<div id="pwCheckResult"></div>
 					</div>
 
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">이름</label>
-						<input type="text" id="name1" name="name1" class="form-control border-danger text-body-tertiary" placeholder="이름입력">
-						<div id="nameCheck" class="redResult"></div>
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="names">이름</label>
+						<input type="text" id="names" name="names" class="form-control border-danger text-body-tertiary" placeholder="이름입력">
+						
 					</div>
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >휴대폰번호</label>
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="phone">휴대폰번호</label>
 						<input type="tel" id="phone" name="phone" class="form-control border-danger text-body-tertiary" placeholder="연락처입력">
-						<div id="phoneCheck" class="redResult"></div>
+						
 					</div>
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">이메일주소</label>
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="email">이메일주소</label>
 						<input type="email" id="email" name="email" class="form-control border-danger text-body-tertiary" placeholder="E-mail입력">
-					<div id = "emailCheck" class="redResult"></div>
+					
 					</div>
 					<div class="input-group mb-3">
-						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >주소</label>
+						<label class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" for="address">주소</label>
 						<input type="text" id="address" name="address" class="form-control border-danger text-body-tertiary" placeholder="주소지입력">
-					<div id = "addressCheck" class="redResult"></div>
+					
 					</div>
 								
 				<div class="col-12">
-					<button type="submit" class="btn btn-danger col-3 text-white fw-bold border border-3 border border-danger">등록</button>
+					<button type="button" id="btn" class="btn btn-danger col-3 text-white fw-bold border border-3 border border-danger">등록</button>
 				</div>
 			</form>
 			
 		</div>
 		
 </div>			
-	<script src="../resources/js/memberAdd.js"></script>
 	<c:import url="../template/common_js.jsp"></c:import>
+	<script src="../resources/js/memberAdd.js"></script>
 </body>
 </html>

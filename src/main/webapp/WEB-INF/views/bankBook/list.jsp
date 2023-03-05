@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>BANKING</title>
+<title>저축상품</title>
   	<c:import url="../template/common_css.jsp"></c:import>
 	<link rel="stylesheet" href="/resources/css/table.css">
 </head>
@@ -60,7 +60,7 @@
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination">
 				  	 <li class="page-item">
-				      <a class="page-link " href="./list?page=1&${pager.kind}&search=${pager.search}" aria-label="Previous">
+				      <a class="page-link " href="./list?page=1&$kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 				        <span aria-hidden="true">&laquo;</span>
 				      </a>
 				  	 </li>

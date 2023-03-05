@@ -7,7 +7,7 @@
   
   <insert id="setMemberAdd" parameterType="MemberDTO">
      INSERT INTO MEMBER 
-     VALUES (#{id}, #{pw}, #{name}, #{phone}, #{email}, #{address})
+     VALUES (#{id}, #{pw}, #{names}, #{phone}, #{email}, #{address})
   </insert>
   
   <insert id="setMemberRoleAdd" parameterType="MemberDTO">
@@ -31,9 +31,10 @@
   	<resultMap type="MemberDTO" id="getMemberLoginResult">
   		<id column="ID" property="id"/>
   		<result column="PW" property="pw"/>
-  		<result column="NAME" property="name"/>
+  		<result column="NAMES" property="names"/>
   		<result column="EMAIL" property="email"/>
   		<result column="PHONE" property="phone"/>
+  		<result column="ADDRESS" property="address"/>
   		<association property="roleDTO" javaType="RoleDTO">
   			<id column="ROLENUM" property="roleNum"/>
   			<result column="ROLENAME" property="roleName"/>
@@ -41,7 +42,7 @@
   	</resultMap>
   
   <update id="setMemberUpdate" parameterType="MemberDTO">
-  	UPDATE MEMBER SET NAME=#{name},PHONE=#{phone}, EMAIL =#{email}, ADDRESS=#{address}  
+  	UPDATE MEMBER SET NAMES=#{names},PHONE=#{phone}, EMAIL =#{email}, ADDRESS=#{address}  
   	WHERE ID=#{id}
   </update>
   

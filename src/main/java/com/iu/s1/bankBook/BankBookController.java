@@ -30,7 +30,6 @@ public class BankBookController {
 		List<BankBookDTO> ar = bankBookService.getBankBookList(pager);
 		
 		
-		
 		mv.setViewName("bankBook/list");
 		mv.addObject("list", ar);
 		mv.addObject("pager",pager);

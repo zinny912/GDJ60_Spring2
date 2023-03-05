@@ -15,7 +15,7 @@
 	<div class="row">
 			<!-- Button trigger modal -->
 			<button type="button" id="launch" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-			  Launch demo modal
+			  Launch modal
 			</button>
 			
 			<!-- Modal -->
@@ -32,26 +32,12 @@
 			  </div>
 			</div>
 					<a href="/">Home</a>
-	
 	</div>
-	
-	
 </div>
 
-
-
 <c:import url="../template/common_js.jsp"></c:import>
-
 <script type="text/javascript">
-document.getElementById("launch").click();
- 
- 
-	
-
-
+	document.getElementById("launch").click();
 </script>
-
-
-
 </body>
 </html>

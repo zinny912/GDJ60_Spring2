@@ -38,13 +38,9 @@
 		
 	</div>
 </div>
-<script type="text/javascript" src="../resources/js/boardForm.js">
 
- setMax(5);
- setParam('files');
-
-</script>
 <c:import url="../template/common_js.jsp"></c:import>
+<script type="text/javascript" src="../resources/js/boardForm.js"></script>
 
 </body>
 </html>
