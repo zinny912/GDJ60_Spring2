@@ -11,9 +11,22 @@
   		SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
   	</select>
   
+  <select id="getProductCount" parameterType="Pager" resultType="Long">
+	  		SELECT COUNT(PRODUCTNUM)FROM PRODUCT
+	  		 
+	  		<if test="kind == 'contents'">
+	  			WHERE PRODUCTDETAIL LIKE '%' || #{search} || '%' 
+	  		</if>
+	  		
+	  		<if test="kind == 'title'">
+	  			WHERE PRODUCTNUM LIKE '%' || #{search} || '%' 
+	  		</if>
+	  			
+	  	</select>
+ 
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->
   	<select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
-  		SELECT * FROM
+  		 SELECT * FROM
   			(
 				SELECT ROWNUM R, P.* FROM
 					(
@@ -21,7 +34,8 @@
 						ORDER BY PRODUCTNUM DESC
 					) P
 			)
-			WHERE R BETWEEN #{strartRow} AND #{lastRow}
+			WHERE R BETWEEN #{startRow} AND #{lastRow}
+			
   	</select>
   	
   	<!-- id = 사용하려는 DAO의 메서드 명과 동일하게 -->

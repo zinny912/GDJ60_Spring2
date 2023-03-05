@@ -32,7 +32,7 @@ public class ProductController {
 	
 		mv.setViewName("product/productList");
 		mv.addObject("list", ar);
-		mv.addObject("pagination", pager);
+		mv.addObject("pager", pager);
 		return mv;
 	}
 	

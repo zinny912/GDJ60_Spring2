@@ -60,9 +60,7 @@
 				SELECT ROWNUM R, B.* FROM  
 				(
 					SELECT * FROM BANKBOOK
-					
-					
-				  	
+			  	
 					ORDER BY BOOKNUMBER DESC
 				) B
 			)
