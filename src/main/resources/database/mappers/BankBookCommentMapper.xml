@@ -36,19 +36,27 @@
   	  			SELECT * FROM BANKBOOKCOMMENT
 		  	  	<include refid="commentCondition"></include>
 		  	  	ORDER BY NUM DESC
-		  	  	)C 
+		  	)C 
   	  	)
   	  	WHERE R BETWEEN #{startRow} AND #{lastRow}
   	  </select>
   	  
-  	  <insert id="setBoardAdd" parameterType="BankBookCommentDTO">
-  	 	 
+  	  <insert id="setBoardAdd" parameterType="BankBookCommentDTO"> 
   	  	INSERT INTO BANKBOOKCOMMENT (NUM, BOOKNUMBER, CONTENTS, REGDATE, WRITER)
 		VALUES (COMMENTT_SEQ.NEXTVAL, #{bookNumber}, #{contents}, SYSDATE, #{writer})
   	  
   	  </insert>
   	  
-  	
+  		<delete id="setBoardDelete" parameterType="BbsDTO">
+  			DELETE BANKBOOKCOMMENT WHERE NUM=#{num}
+  		
+  		</delete>
+  		
+  		<update id="setBoardUpdate" parameterType="BbsDTO">
+		     UPDATE BANKBOOKCOMMENT
+		     SET CONTENTS = #{contents}
+		     WHERE NUM = #{num} 
+     	</update>
 	
   </mapper>
   

@@ -19,6 +19,10 @@ for(let p of pl){
     });
 };
 
+let data='';
+function setData(d){
+  data=d;
+}
 
 
 // for(let i =0; i<pl.length; i++){

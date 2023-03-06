@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> '답글' </title>
 <c:import url="../template/common_css.jsp"></c:import>
-
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
 
 <div class="container fluid my-5">	
 	<div class="row justify-content-center my-4">
@@ -49,7 +46,6 @@
 	</div>
 
 </div>	
-
 
 <script src="../resources/js/fileManager.js"></script>
 <script>
