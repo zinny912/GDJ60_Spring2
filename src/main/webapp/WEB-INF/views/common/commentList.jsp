@@ -6,54 +6,20 @@
 	<c:forEach items="${list}" var="dto" >
 		<tr>
 			<td id="contents${dto.num}">
-				<textarea rows="2" cols="20" readonly>${dto.contents}</textarea>
+				${dto.contents}
 			</td>
 			<td>${dto.writer}</td>
 			<td>${dto.regDate}</td>	
 			<td>
 			<c:if test="${member.id eq dto.writer}">
-			<!--<button class="btn btn-info update" data-comment-num="${dto.num}">댓글수정하기</button> -->
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="댓글수정">댓글수정</button>
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h1 class="modal-title fs-5" id="exampleModalLabel">댓글수정하기</h1>
-			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			      </div>
-			      <div class="modal-body">
-			        <form>
-			          <div class="mb-3">
-			            <label for="${dto.writer}" class="col-form-label">작성자:</label>
-			            <input type="text" class="form-control" id="${dto.writer}">
-			          </div>
-			          <div class="mb-3">
-			            <label for="${dto.contents}" class="col-form-label">내용수정:</label>
-			            <textarea class="form-control" id="${dto.contents}"></textarea>
-			          </div>
-			        </form>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-			        <button type="button" class="btn btn-primary update">수정하기</button>
-			      </div>
-			    </div>
-			</div>
-			</div>
+			<button class="btn btn-info update" data-comment-num="${dto.num}" data-bs-toggle="modal" data-bs-target="#contentsModal">댓글수정</button>
 			</c:if>
 			</td>
 			<td>
 			<c:if test="${member.id eq dto.writer}">
 			<button class="btn btn-danger del" data-comment-num="${dto.num}">댓글삭제하기</button>
 			</c:if>
-			</td>
-			<td>
-			
-			  
-
-			
-			
-			</td>
+			</td>			
 		</tr>
 	</c:forEach>
 </table>	
