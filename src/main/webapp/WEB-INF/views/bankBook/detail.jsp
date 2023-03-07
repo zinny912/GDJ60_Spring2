@@ -2,10 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
@@ -41,36 +41,50 @@
 	</div>
 		<div class="my-5">
 		  	<div class="mb-3">
-				<textarea class="form-control" rows="3" id="replyContents" value=""></textarea>
+				<textarea class="form-control" rows="3" id="replyContents"></textarea>
 		  	</div>
 		  <div class="mb-3">
-				<button type="submit" class="btn btn-primary" id="replyAdd" data-book-bookNumber="${dto.bookNumber}">댓글작성</button>
+				<button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNumber="${dto.bookNumber}">댓글작성</button>
 		  </div>
 		</div>
 				
 		
-			<div class="modal fade" id="#contentsModal" tabindex="-1" aria-labelledby="exampleModalLabel">
-			  <div class="modal-dialog">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h1 class="modal-title fs-5" id="#exampleModallabel">댓글수정하기</h1>
-			        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			      </div>
-			      <div class="modal-body">
-			        <form>
-			          <div class="mb-3">
-			            <label for="contents" class="col-form-label">내용수정:</label>
-			            <textarea class="form-control" id="contents"></textarea>
-			          </div>
-			        </form>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">닫기</button>
-			        <button type="button" class="btn btn-primary update" data-comment-num="" id="contentsConfirm">수정하기</button>
-			      </div>
-			    </div>
+			<!--  Update Form Modal -->
+	<!-- Modal -->
+	<div class="modal fade" id="contentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
+			<div class="modal-body">
+				<div class="form-floating">
+					<textarea class="form-control" placeholder="Leave a comment here" id="contents"></textarea>
+					<label for="contents">Comments</label>
+				</div>
 			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeModal">Cancel</button>
+			<button type="button" class="btn btn-primary" data-comment-num="" id="contentsConfirm">확인</button>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+<!-- Test후 삭제할 영역 
+<div class="my-5">
+	<button type="button" id="b1">BUTTON1</button>
+	<input type ="text" id="t1">
+	<div class = "my-5">
+		<input type="checkbox" id="" class="ch" name="ch" value="v1">
+		<input type="checkbox" id="" class="ch" name="ch" value="v2">
+		<input type="checkbox" id="" class="ch" name="ch" value="v3">
+		<input type="checkbox" id="" class="ch" name="ch" value="v4">
+	</div>
+</div>
+-->
+
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>
