@@ -61,6 +61,7 @@ public class OwnerCheckInterceptor extends HandlerInterceptorAdapter {
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
 			view.forward(request, response);
+			
 			return false;
 		}
 		return true;

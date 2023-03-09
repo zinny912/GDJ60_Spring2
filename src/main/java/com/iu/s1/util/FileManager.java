@@ -20,8 +20,6 @@ public class FileManager {
 	}
 	
 	
-	
-	
 	//File을 HDD에 저장
 	//service에서 할 역할 클래스 새로 생성하여 작성
 	public String fileSave(MultipartFile multipartFile, String path) throws Exception{

@@ -1,5 +1,7 @@
 package com.iu.s1.board;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,4 +15,9 @@ public interface BoardService extends BbsService {
 	// 여기서 진행하면 2번 받아야해서 BbsService에서 진행
 	// public int setBoardAdd(BoardDTO boardDTO,MultipartFile[] multipartFiles) throws Exception;
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO)throws Exception;
+
+	public int setBoardUpdate(BbsDTO bbsDTO, MultipartFile [] multipartFiles, HttpSession session, Long [] fileNums)throws Exception;
+
 }
+
+

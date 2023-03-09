@@ -1,3 +1,4 @@
+
 //댓글등록 NEW버전 요즘 방식
 $("#replyAdd").click(function(){
    
@@ -55,15 +56,15 @@ $("#commentListResult").on("click",".page-link",function(e) {
 
 
 //delete
-$("#commentListResult").on("click","#del",function(e){
+$("#commentListResult").on("click",".del",function(e){
     fetch("../bankBookComment/delete", {
             method:'POST',
             headers:{
                 "Content-type": "application/x-www-form-urlencoded"
             }, 
-            body:"num="+$("#del").attr("data-comment-num")  
+            body:"num="+$(this).attr("data-comment-num")  
         //응답객체에서 Data 추출 
-        }).then((response)=>response.text())  //then(function(response){return response.text()})
+        }).then((response)=>{return response.text()})  //then(function(response){return response.text()})
             //추출한 Data 사용 
             .then((res)=>{
                 if(res.trim()>0){
@@ -76,7 +77,8 @@ $("#commentListResult").on("click","#del",function(e){
                 .catch(()=>{   
                     alert("에러 발생");
                     });
-                    e.preventDefault();                
+                 e.preventDefault();
+                                
 });
                     
 

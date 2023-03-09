@@ -83,11 +83,9 @@
   	</insert>
   	
   	
-  	
   	<update id="setStepUpdate" parameterType="QnaDTO">
   		UPDATE QNA SET STEP = STEP + 1
   		WHERE REF = #{ref} AND STEP > #{step}  
-  	
   	</update>
   	
   	<insert id="setReplyAdd" parameterType="QnaDTO">
@@ -103,5 +101,13 @@
   	<select id = "getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
   		SELECT * FROM QNAFILES WHERE NUM=#{num}
   	</select>
+  	<delete id="setBoardFileDelete" parameterType="Long">
+  		DELETE QNAFILES WHERE FILENUM=#{fileNum}
+  	</delete>
+  
+  	<update id="setBoardUpdate" parameterType="BbsDTO">
+  		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents} WHERE NUM=#{num}
+  	</update>
+  	
   
   </mapper>

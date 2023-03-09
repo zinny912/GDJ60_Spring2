@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <title> 추가 </title>
 <c:import url="../template/common_css.jsp"></c:import>
-
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -21,31 +22,35 @@
 	<%-- 서버로 전송하고 싶은 정보들은 form 태그안에 넣어서 작성 --%>
 	
 	<div class="row justify-content-center my-4">
-		<form class="col-md-7" action="./add" method="POST" enctype="multipart/form-data"> <%-- 같은 위치의 add로 POST 메서드 형식으로 보낼거임 --%>
-		
+		<form class="col-md-7" action="./update" method="POST" enctype="multipart/form-data"> <%-- 같은 위치의 add로 POST 메서드 형식으로 보낼거임 --%>
+		<input type="hidden" name="num" value="${dto.num}">
 		 <div class="mb-3">
 		  <label class="form-label" for="writer">작성자</label>
-		  <input type="text" name="writer" class="form-control" id="writer" readonly value="${member.id}">
+		  <input type="text" name="writer" class="form-control" id="writer" readonly value="${dto.writer}">
 		</div>
 	
 		 <div class="mb-3">
 			  <label class="form-label" for="title">제목</label>
-			  <input type="text" name="title" class="form-control" id="title" placeholder="제목입력">
+			  <input type="text" name="title" class="form-control" id="title" value="${dto.title}" placeholder="제목입력">
 		</div>
 		 
 		 <div class="mb-3">
 			  <label class="form-label" for="contents">내용</label>
-			  <textarea name="contents" class="form-control" id="contents" placeholder="내용입력" rows="7"></textarea>
+			  <textarea name="contents" class="form-control" id="contents" placeholder="내용입력" rows="7">${dto.contents}</textarea>
 		 </div>
+		 <div id="fileList" class="mb-3 my-5">
+	            
+	            <button type="button" class="btn btn-primary" id="fileAdd">ADD</button>
+			      <c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
+					   <div class="input-group mb-3">
+					     <div class="input-group-text">
+					   		 <input class="form-check-input mt-0 deleteCheck" type="checkbox" value="${fileDTO.fileNum}" name="fileNum" aria-label="Checkbox for following text input">
+					     </div>
+			     		<input type="text" class="form-control" disabled value="${fileDTO.oriName}" aria-label="Text input with checkbox">
+			   		   </div>
+	       		</c:forEach>
+	     </div>
 	 
-		 <div id="fileList" class="my-5">
-			 <!-- 	<div class="input-group mb-3">
-						<input type="file" class="form-control" id="files" name="files">
-						<button type="button" class="btn btn-outline-danger">X</button>
-					</div>-->
-				<button type="button" class="btn btn-primary" id="fileAdd">ADD</button>
-		</div>
-
 		<div class ="mb-3 ">
 			<button type="submit" class="my btn btn-danger">글쓰기</button>
 		</div>	
@@ -58,7 +63,9 @@
 
 <script>
 	setMax(5);
-	setParam('files');
+	setParam('addfile');
+	setCount('${dto.boardFileDTOs.size()}');
+	$("#contents").summernote();
 </script>
 <c:import url="../template/common_js.jsp"></c:import>
 </body>
