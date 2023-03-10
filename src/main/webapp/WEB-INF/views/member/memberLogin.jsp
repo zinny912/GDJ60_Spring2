@@ -17,12 +17,18 @@
 			<form class="row col-6" action="memberLogin" method="post"> 
 				<div class="input-group mb-3">
 				 	<span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger">ID</span>
-				 	<input type="text" id="id" name="id" class="form-control border border-3 border border-danger text-body-tertiary " placeholder="아이디입력" aria-label="Username" aria-describedby="basic-addon1">
+				 	<input type="text" id="id" value="${cookie.rememberId.value}" name="id" class="form-control border border-3 border border-danger text-body-tertiary " placeholder="아이디입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 				<div class="input-group mb-3">
 					<span class="input-group-text col-3 fw-bold bg-danger text-white border border-3 border border-danger" >PASSWORD</span>
 				  	<input type="text" id="pw" name="pw" class="form-control border border-3 border border-danger text-body-tertiary" placeholder="비밀번호입력" aria-label="Username" aria-describedby="basic-addon1">
 				</div>		
+				<div class="mb-3 form-check">
+					<input type="checkbox" name="remember" value="remember" class="form-check" id="form1Example3" checked="">
+					<label class="form-check-label" for="remember">ID기억하기</label>
+				</div>
+				
+			
 				<div class="my-3">
 				    <button type="submit" class="btn btn-danger">로그인</button>
 				</div>

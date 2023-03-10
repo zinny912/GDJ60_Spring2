@@ -80,14 +80,11 @@
   	<insert id="setBoardFileAdd" parameterType="BoardFileDTO">
   		INSERT INTO QNAFILES (FILENUM, NUM, FILENAME, ORINAME)
   		VALUES(QFILE_SEQ.NEXTVAL,#{num},#{fileName},#{oriName})
-  	</insert>
-  	
-  	
+  	</insert>	
   	
   	<update id="setStepUpdate" parameterType="QnaDTO">
   		UPDATE QNA SET STEP = STEP + 1
   		WHERE REF = #{ref} AND STEP > #{step}  
-  	
   	</update>
   	
   	<insert id="setReplyAdd" parameterType="QnaDTO">
@@ -95,13 +92,20 @@
   		VALUES(QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, #{ref}, #{step}, #{depth})
   	</insert>
   
-  
   	<delete id="setBoardDelete" parameterType="BbsDTO">
   		DELETE QNA WHERE NUM=#{num}
   	</delete>
   	
-  	<select id = "getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
+  	<select id ="getBoardFileList" parameterType="BbsDTO" resultType="BoardFileDTO">
   		SELECT * FROM QNAFILES WHERE NUM=#{num}
   	</select>
+  	<delete id="setBoardFileDelete" parameterType="Long">
+  		DELETE QNAFILES WHERE FILENUM=#{fileNum}
+  	</delete>
+  
+  	<update id="setBoardUpdate" parameterType="BbsDTO">
+  		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents} WHERE NUM=#{num}
+  	</update>
+  	
   
   </mapper>
